@@ -1,0 +1,91 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../../paper-icon-button.html">
+
+<dom-module id="medico-info">
+  <template>
+    <style>
+    :host {
+        display: inline;
+    }
+	div.card {
+		display: block;
+		text-align: center;
+		margin-top: 10px;
+		padding-top: 10px;
+	}
+	div.infopanel {
+		display: inline;
+		font-size: 85%;
+	}
+	div.info {
+		margin-top: 10px;
+	}
+	panel-body {
+		display: inline;
+	}
+    </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+ 
+  <div class="infopanel">
+  <div class="col-lg-3">
+   <div class="card">
+    <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="Card image" style="width: 50%;">
+    <div class="card-body">
+      <strong class="card-title">Manuel Fernando Mena</strong>
+      <p class="card-text">28 años</p>
+	  <p class="card-text">RM 1094903XXX</p>
+    </div>
+   </div>
+   </div>
+   <div class="info col-lg-9">
+	<div class="panel panel-info">
+	 <div class="panel-heading">Información Profesional</div>
+	 <div class="panel-body">
+	 <div class="col-lg-6">
+	 Pregado: Medicina General
+	 </br>
+	 Escuela: Universidad tecnológica de Periera
+	 </br>
+	 Posgrado: Magister en investigación de operaciones y estadística (candidato)
+	 </br>
+	 Escuela: Universidad tecnológica de Periera
+	 </div>
+	 <div class="col-lg-6">
+	 Consultorio: calle 12 # 15 40
+	 </br>
+	 Telefono: 300 707 6285
+	 </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+  </template>
+
+  <script>
+    /**
+     * `medico-info`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class MedicoInfo extends Polymer.Element {
+      static get is() { return 'medico-info'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'medico-info'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MedicoInfo.is, MedicoInfo);
+  </script>
+</dom-module>

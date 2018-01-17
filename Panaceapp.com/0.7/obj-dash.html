@@ -1,0 +1,105 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<dom-module id="obj-dash">
+    <template>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      :host {
+        display: block;
+      }
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		.row.content {height: 450px}
+			
+		/* On small screens, set height to 'auto' for the grid */
+		@media screen and (max-width: 400px) {
+		  .row.content {height: 300px;} 
+		}
+		div.damer {
+		  margin-top: 10px;
+		  height: 320px;
+		  font-size: 14px;
+		  overflow: auto;
+		}
+		iron-icon {
+		  color: teal;
+		}
+		div.panel {
+		  max-height: 280px;
+		}
+		div.panel-heading {
+		  height: 45px;
+		  padding-top: 10px;
+		}
+		div.panel-body {
+		 overflow: auto;
+		 max-height: 210px;
+		}
+		h4.icondash {
+		position: sticky;
+		margin-top: 20px;
+        }		
+    </style>
+	   <h4 class="icondash"><iron-icon icon="search"></iron-icon></h4>
+       <div class="damer well content col-sm-12">
+        <div class="row">
+		 <div class="col-lg-2 col-md-5 col-sm-5 col-xs-12">
+		  <div class="panel panel-default">
+		   <div class="panel-heading"><strong>Signos Vitales</strong></div>
+		   <div class="panel-body">
+		    <p>Peso: <span>100 kg</span></p>
+			<p>Talla: <span>190 cm</span></p>
+		    <p>T°: <span>37 °C</span></p>
+			<p>FC: <span>80 lpm</span></p>
+			<p>PA: <span>126/74 mmHg</span></p>
+		   </div>
+		  </div>
+		 </div>
+		 <div class="col-lg-5 col-md-6 col-sm-7 col-xs-12">
+		  <div class="panel panel-default">
+		   <div class="panel-heading"><strong>Examen Físico</strong></div>
+		   <div class="panel-body">
+		    <div class="ef">
+		    <p>paciente en aceptable estado general</p>
+			<p>sin altereaciones neurologicas</p>
+            <p>mucosas humedas y rosadas</p> 
+			<p>torax simetrico</p>
+			<p>campos pulmonares bien ventilados</p>
+			<p>ruidos cardiacos ritmicos sin soplos</p>
+			<p>abdomen blando depresible sin masas o megalias</p>
+			<p>extremidades simetricas sin edemas</p>
+		    </div>
+		   </div>
+		  </div>
+		 </div>
+		 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+		  <div class="panel panel-default">
+		   <div class="panel-heading"><strong>Examenes Paraclínicos</strong></div>
+		   <div class="panel-body">no</div>
+		  </div>
+		 </div>
+		</div> 		
+       </div>
+  </template>
+  <script>
+    /**
+     * `obj-dash`
+     * objetivo
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ObjDash extends Polymer.Element {
+      static get is() { return 'obj-dash'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'obj-dash'
+          }
+        };
+      }
+    }
+    window.customElements.define(ObjDash.is, ObjDash);
+  </script>
+</dom-module>

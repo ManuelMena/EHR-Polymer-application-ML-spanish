@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="panaceapp-app">
+  <template>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+     <div><img src="https://storage.googleapis.com/tetraktysstorage/panacealogo.png" alt="Panacea" class="w3-display-middle w3-animate-opacity w3-hover-opacity" width="50%"></div>
+	 <div><img src="https://storage.googleapis.com/tetraktysstorage/hceiniciologo.png" alt="HCE" class="w3-display-topmiddle w3-margin-top w3-animate-fading w3-hover-opacity" width="50%"></div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PanaceappApp extends Polymer.Element {
+      static get is() { return 'panaceapp-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'panaceapp-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PanaceappApp.is, PanaceappApp);
+  </script>
+</dom-module>

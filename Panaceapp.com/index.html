@@ -1,0 +1,392 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html lang="en">
+ <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<title>Panacea | Historia Clínica</title>
+	<meta name="description" content="hce-ehr">
+	<link rel="manifest" href="/manifest.json">
+	<script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="bower_components/paper-button/paper-button.html">
+	<link rel="import" href="x-app.html">
+	<link rel="import" href="paciente-info/paciente-info.html">
+	<link rel="import" href="medico-info/medico-info.html">
+	<link rel="import" href="config-panacea/config-panacea.html">
+	<style>
+	body {
+		margin: 0;
+		font-family: sans-serif;
+		background-color: #f1f1f1;
+		overflow:hidden;
+    }
+	::-webkit-scrollbar {
+		display: none;
+    }
+	div.perm {
+		color: green;
+		position: fixed;
+		top: 10px;
+		right: 64px;
+		z-index: 1;
+		font-s
+	}
+	paper-icon-button.perm {
+		color: white;
+	}
+	div.settings {
+		color: white;
+		position: fixed;
+		top: 10px;
+		right: 32px;
+		z-index: 1;
+	}
+	div.help {
+		color: white;
+		position: fixed;
+		top: 10px;
+		right: 0px;
+		z-index: 1;
+	}
+	div.create {
+		color: green;
+		position: fixed;
+		top: 80px;
+		right: 64px;
+		z-index: 1;
+	}
+	div.archive {
+		color: green;
+		position: fixed;
+		top: 110px;
+		right: 64px;
+		z-index: 1;
+	}
+	div.print {
+		color: green;
+		position: fixed;
+		top: 140px;
+		right: 64px;
+		z-index: 1;
+	}
+	div.face {
+		color: green;
+		position: fixed;
+		top: 90px;
+		right: 20px;
+		z-index: 1;
+	}
+	div.book {
+		color: green;
+		position: fixed;
+		top: 130px;
+		right: 20px;
+		z-index: 1;
+	}
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	/* Modal Content */
+	.modal-content {
+		position: absolute;
+		background-color: #fefefe;
+		border: 1px solid #888;
+		margin-top: 90px;
+		right: 40px;
+		width: 77%;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+		-webkit-animation-name: animatetop;
+		-webkit-animation-duration: 0.4s;
+		animation-name: animatetop;
+		animation-duration: 0.4s
+	}
+	/* Add Animation */
+	@-webkit-keyframes animatetop {
+		from {top:-300px; opacity:0} 
+		to {top:0; opacity:1}
+	}
+	@keyframes animatetop {
+		from {top:-300px; opacity:0}
+		to {top:0; opacity:1}
+	}
+
+	/* The Close Button */
+	.close {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	.close:hover,
+	.close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.modal-header {
+		padding: 1px 12px 18px 26px;
+		background-color: #5cb85c;
+		color: white;
+		height: 25px;
+	}
+	.modal-body {
+	    padding: 2px 16px;
+		height: 280px;
+		overflow: auto;
+	}
+	.modal-footer {
+		padding: 0px 0px 0px 0px;
+		background-color: #5cb85c;
+		color: white;
+		height: 40px;
+	}
+	.modalbook {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 2; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	/* The Close Button */
+	.closebook {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	.closebook:hover,
+	.closebook:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.modalperm {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	/* The Close Button */
+	.closeperm {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	.closeperm:hover,
+	.closeperm:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.modalsetting {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	/* The Close Button */
+	.closesetting {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	.closesetting:hover,
+	.closesetting:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.modalcreate {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	/* The Close Button */
+	.closecreate {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	.closecreate:hover,
+	.closecreate:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	h3.action {
+		position: absolute;
+		right: 10px;
+		top: 310px;
+		color: white;
+	}
+    </style>
+ </head>
+ <body unresolved>
+   <div class="perm">
+	<paper-icon-button class="perm" icon="account-circle" id="myBtnperm"></paper-icon-button>
+	<div id="myModalperm" class="modalperm">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <span class="closeperm">&times;</span>
+		  <h3>Usuario</h3>
+		</div>
+		<div class="modal-body">
+		<medico-info></medico-info>
+		</div>
+		<div class="modal-footer">
+		<h3 class="action"><paper-icon-button icon="cloud-done"></paper-icon-button></h3>
+		</div>
+	  </div>
+	  
+	</div>
+	<script src="modalperm.js"></script>
+   </div> 
+   <div class="settings">
+	<paper-icon-button icon="settings" id="myBtnsetting"></paper-icon-button>
+	<div id="myModalsetting" class="modalsetting">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <span class="closesetting">&times;</span>
+		  <h3>Configuración</h3>
+		</div>
+		<div class="modal-body">
+		<config-panacea></config-panacea>
+		</div>
+		<div class="modal-footer">
+		<h3 class="action"><paper-icon-button icon="build"></paper-icon-button></h3>
+		</div>
+	  </div>
+	</div>
+	<script src="modalsetting.js"></script>
+   </div> 
+   <div class="help">
+	<paper-icon-button icon="help" onclick="myFunction()"></paper-icon-button>
+	<script>
+	function myFunction() {
+		alert("Tienes dudas?");
+	}
+	</script>
+   </div>
+   <div class="create">
+	<paper-icon-button icon="create" id="myBtncreate"></paper-icon-button>
+	<div id="myModalcreate" class="modalcreate">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <span class="closecreate">&times;</span>
+		  <h3>Edición</h3>
+		</div>
+		<div class="modal-body">
+		</div>
+		<div class="modal-footer">
+		<h3 class="action"><paper-icon-button icon="cloud-upload"></paper-icon-button></h3>
+		</div>
+	  </div>
+	</div>
+	<script src="modalcreate.js"></script>
+   </div>
+   <div class="archive">
+	<paper-icon-button icon="archive" onclick="myFunctioncheck()"></paper-icon-button>
+	<script>
+	function myFunctioncheck() {
+		alert("Quieres archivar esta historia clínica?");
+	}
+	</script>
+   </div>  
+   <div class="print">
+	<paper-icon-button icon="print" onclick="myFunctionprint()"></paper-icon-button>
+	<script>
+function myFunctionprint() {
+    alert("Quieres imprimir?");
+}
+    </script>
+   </div>  
+   <div class="face">
+    <paper-icon-button icon="face" id="myBtn"></paper-icon-button>
+	<div id="myModal" class="modal">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <span class="close">&times;</span>
+		  <h3>Pacientes</h3>
+		</div>
+		<div class="modal-body">
+		<paciente-info></paciente-info>
+		</div>
+		<div class="modal-footer">
+		<h3 class="action"><paper-icon-button icon="search" id="myBtnupload"></paper-icon-button></h3>
+		</div>
+	  </div>
+	</div>
+	<script src="modal.js"></script>
+   </div>
+   <div class="book">
+  	<paper-icon-button icon="book" id="myBtnbook"></paper-icon-button>
+    <div id="myModalbook" class="modalbook">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <span class="closebook">&times;</span>
+		  <h3>Agenda</h3>
+		</div>
+		<div class="modal-body">
+		</div>
+		<div class="modal-footer">
+		<h3 class="action"><paper-icon-button icon="add-circle"></paper-icon-button></h3>
+		</div>
+	  </div>
+     </div>
+     <script src="modalbook.js"></script>
+   </div>
+  <x-app></x-app>
+ </body>
+</html>

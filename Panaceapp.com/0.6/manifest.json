@@ -1,0 +1,7 @@
+{
+  "name": "panacea",
+  "short_name": "panacea",
+  "description": "hce-ehr",
+  "start_url": "/",
+  "display": "standalone"
+}

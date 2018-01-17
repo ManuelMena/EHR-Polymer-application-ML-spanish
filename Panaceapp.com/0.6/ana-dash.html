@@ -1,0 +1,77 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<dom-module id="ana-dash">
+ <template>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <style>
+      :host {
+        display: block;
+      }
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		.row.content {height: 450px}
+			
+		/* On small screens, set height to 'auto' for the grid */
+		@media screen and (max-width: 400px) {
+		  .row.content {height: 300px;} 
+		}
+		div.damer {
+		  margin-top: 10px;
+		  height: 370px;
+		}
+		iron-icon {
+		  color: teal;
+		}
+    </style>
+    <div class="damer well content col-sm-12">
+	 <h4><iron-icon icon="lightbulb-outline"></iron-icon> Análisis</h4> 
+	 <div class="row subjetivo">
+	     <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6"> 
+		  <div class="panel panel-default">
+		   <div class="panel-heading">Observaciones</div>
+		   <div class="panel-body">sin signos de deshidratación</div>
+		  </div>
+		 </div>
+		 <div class="col-lg-6 col-md-6 col-sm-7 col-xs-6">
+		  <div class="panel panel-default">
+		   <div class="panel-heading">Recomendaciones</div>
+		   <div class="panel-body">tomar mucho liquido</div>
+		  </div>
+		 </div>
+	     <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+		  <div class="panel panel-default">
+		   <div class="panel-heading">Formulas</div>
+		   <div class="panel-body">Acetaminofen tab x 500 mg 1 tab cada 6 horas por 4 dias</div>
+		  </div>
+		 </div>
+		 <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+		  <div class="panel panel-default">
+		   <div class="panel-heading">Ordenes</div>
+		   <div class="panel-body">hemograma</div>
+		  </div>
+		 </div>
+		</div> 
+    </div>
+  </template>
+  <script>
+    /**
+     * `ana-dash`
+     * analisis
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class AnaDash extends Polymer.Element {
+      static get is() { return 'ana-dash'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'ana-dash'
+          }
+        };
+      }
+    }
+    window.customElements.define(AnaDash.is, AnaDash);
+  </script>
+</dom-module>
