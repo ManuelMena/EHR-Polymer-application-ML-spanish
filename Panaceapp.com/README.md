@@ -1,20 +1,26 @@
-# instalación global de npm
+#Como crear un proyecto en una instancia de google cloud 
 
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-sudo nano ~/.profile
+##1- crear una instancia en Google
 
--- pegar:
+instrucciones: https://cloud.google.com/compute/docs/quickstart-linux
 
-export PATH=~/.npm-global/bin:$PATH
+ingresar a la terminal y abrir un SSH
 
---guardar y volver a actualizar con comando:
+##2- instalar global de npm 
 
-source ~/.profile
+| mkdir ~/.npm-global |
+| npm config set prefix '~/.npm-global' |
+| sudo nano ~/.profile| 
+
+-- pegar: | export PATH=~/.npm-global/bin:$PATH |
+
+--guardar y volver a actualizar con el comando:
+
+| source ~/.profile |
 
 -- probar:
 
-npm install -g jshint
+| npm install -g jshint |
 
 # instalar y comprobar requisitos
 
