@@ -1,12 +1,12 @@
-#Como crear un proyecto en una instancia de google cloud 
+# Como crear un proyecto en una instancia de google cloud 
 
-##1- crear una instancia en Google
+## crear una instancia de Linux en Google Cloud
 
 instrucciones: https://cloud.google.com/compute/docs/quickstart-linux
 
 ingresar a la terminal y abrir un SSH
 
-##2- instalar global de npm 
+## instalar global de npm 
 
 | mkdir ~/.npm-global |
 | npm config set prefix '~/.npm-global' |
@@ -22,116 +22,94 @@ ingresar a la terminal y abrir un SSH
 
 | npm install -g jshint |
 
-# instalar y comprobar requisitos
+## instalar y comprobar requisitos
 
-node --version
-npm install npm@latest -g
-git --version
+| node --version |
+| npm install npm@latest -g |
+| git --version |
 npm install -g bower
 
-# instalar polymer CLI
+## instalar polymer CLI
 
-npm install -g polymer-cli
+| npm install -g polymer-cli |
 
-# actualizar permisos
+## actualizar permisos
 
-sudo chmod 777 htdocs
-cd htdocs
-sudo chmod 777 index.html
+| sudo chmod 777 htdocs |
+| cd htdocs |
+| sudo chmod 777 index.html |
 
+## intalar proyecto
 
-# intalar proyecto
+| polymer init |
+| polymer serve |
 
-polymer init
-polymer serve
+## construir
 
+| cd htdocs |
+| polymer build |
 
-# construir
+## instalar layout e instalar componentes.
 
-cd htdocs
-polymer build
+| bower install PolymerElements/app-layout --save |
 
+| bower install PolymerElements/paper-icon-button --save |
 
-# instalar layout e instalar componentes.
+| bower install PolymerElements/iron-icons --save |
 
+| bower install PolymerElements/iron-form --save |
 
-bower install PolymerElements/app-layout --save
+| bower install PolymerElements/paper-button --save |
 
-bower install PolymerElements/paper-icon-button --save
+| bower install PolymerElements/paper-styles --save |
 
-bower install PolymerElements/iron-icons --save
+| bower install PolymerElements/iron-flex-layout --save |
 
-bower install PolymerElements/iron-form --save
+| bower install PolymerElements/iron-pages --save |
 
-bower install PolymerElements/paper-button --save
+| bower install PolymerElements/iron-selector --save |
 
-bower install PolymerElements/paper-styles --save
+| bower install PolymerElements/iron-selector --save |
 
-bower install PolymerElements/iron-flex-layout --save
+| bower install PolymerElements/paper-listbox --save |
 
-bower install PolymerElements/iron-pages --save
+| bower install PolymerElements/paper-styles --save |
 
-bower install PolymerElements/iron-selector --save
+| bower install PolymerElements/iron-meta --save |
 
-bower install PolymerElements/iron-selector --save
+| bower install PolymerElements/iron-ajax --save |
 
-bower install PolymerElements/paper-listbox --save
+| bower install PolymerElements/app-route --save |
 
-bower install PolymerElements/paper-styles --save
+## *** necesitan usuario de github
 
-bower install PolymerElements/iron-meta --save
-
-bower install PolymerElements/iron-ajax --save 
-
-bower install PolymerElements/app-route --save
-
-
-
-# necesitan usuario de github
-
-bower install PolymerElements/iron-page-scroll --save
-
-bower install PolymerElements/iron-demo-helpers --save
+| bower install PolymerElements/iron-page-scroll --save |
+| bower install PolymerElements/iron-demo-helpers --save |
 
 --- permisos para transferir archivos
 
+## actualizar permisos
 
-# actualizar permisos
+| cd htdocs |
+| sudo chmod 777 bower.json |
+| sudo chmod 777 manifest.json |
+| sudo chmod 777 polymer.json |
 
-cd htdocs
-sudo chmod 777 bower.json
-sudo chmod 777 manifest.json
-sudo chmod 777 polymer.json
+## crear elementos
 
+| mkdir sub-dash && cd sub-dash |
+| polymer init |
+| mkdir obj-dash && cd obj-dash |
+| polymer init |
+| mkdir ana-dash && cd ana-dash |
+| polymer init |
 
-# crear elementos
+## permisos de los ficheros de los elementos
 
-mkdir sub-dash && cd sub-dash
-polymer init
-
-mkdir obj-dash && cd obj-dash
-polymer init
-
-mkdir ana-dash && cd ana-dash
-polymer init
-
-
-# permisos de los ficheros de los elementos
-
-cd sub-dash
-sudo chmod 777 sub-dash.html
-
-cd obj-dash
-sudo chmod 777 obj-dash.html
-
-cd ana-dash
-sudo chmod 777 ana-dash.html
-
-
-
-
-
-
-
-
+| cd sub-dash |
+| sudo chmod 777 sub-dash.html |
+| cd obj-dash |
+| sudo chmod 777 obj-dash.html |
+| cd ana-dash |
+| sudo chmod 777 ana-dash.html |
 
