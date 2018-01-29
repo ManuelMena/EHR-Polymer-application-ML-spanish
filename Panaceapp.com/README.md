@@ -9,7 +9,9 @@ ingresar a la terminal y abrir un SSH
 ## instalar global de npm 
 
 | mkdir ~/.npm-global |
+
 | npm config set prefix '~/.npm-global' |
+
 | sudo nano ~/.profile| 
 
 -- pegar: | export PATH=~/.npm-global/bin:$PATH |
