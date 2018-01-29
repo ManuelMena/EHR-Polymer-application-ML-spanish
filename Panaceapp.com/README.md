@@ -1,4 +1,4 @@
-# Como crear un proyecto en una instancia de google cloud 
+# Instalación de la app con Polymer en una instancia de Google Cloud 
 
 ## crear una instancia de Linux en Google Cloud
 
