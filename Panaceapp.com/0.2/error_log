@@ -1,5 +1,0 @@
-[Wed Dec 27 11:42:05.905380 2017] [ssl:warn] [pid 944:tid 140504661022464] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
-[Wed Dec 27 11:42:05.947393 2017] [ssl:warn] [pid 945:tid 140504661022464] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
-[Wed Dec 27 11:42:05.964884 2017] [mpm_event:notice] [pid 945:tid 140504661022464] AH00489: Apache/2.4.29 (Unix) OpenSSL/1.0.2n configured -- resuming normal operations
-[Wed Dec 27 11:42:05.964918 2017] [core:notice] [pid 945:tid 140504661022464] AH00094: Command line: '/opt/bitnami/apache2/bin/httpd.bin -f /opt/bitnami/apache2/conf/httpd.conf'
-[Wed Dec 27 12:23:06.871351 2017] [pagespeed:warn] [pid 951:tid 140503949309696] [mod_pagespeed 1.9.32.14-0 @951] Failed to read cache clean timestamp /opt/bitnami/apache2/var/cache/mod_pagespeed/!clean!time!.  Doing an extra cache clean to be safe.

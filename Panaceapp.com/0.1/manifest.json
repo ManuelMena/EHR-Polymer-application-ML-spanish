@@ -1,7 +1,0 @@
-{
-  "name": "panaceapp",
-  "short_name": "panaceapp",
-  "description": "EHR",
-  "start_url": "/",
-  "display": "standalone"
-}
