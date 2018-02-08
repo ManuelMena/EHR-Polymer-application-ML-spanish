@@ -1,18 +1,28 @@
-# Instalación de la app con Polymer en una instancia de Google Cloud 
+# Instalación de la app con django y paquete de Polymer en una instancia de Google Cloud 
 
-## crear una instancia de Linux en Google Cloud
+## crear una instancia de Linux con el stack django en bitnami con Google Cloud
 
-instrucciones: https://cloud.google.com/compute/docs/quickstart-linux
+https://bitnami.com/stack/django
 
 ingresar a la terminal y abrir un SSH
 
+## intalar nodejs
+
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+###Para compilar e instalar extensiones nativas
+
+sudo apt-get install -y build-essential
+
+
 ## instalar global de npm 
 
-| mkdir ~/.npm-global |
+mkdir ~/.npm-global
 
-| npm config set prefix '~/.npm-global' |
+npm config set prefix '~/.npm-global'
 
-| sudo nano ~/.profile| 
+sudo nano ~/.profile
 
 -- pegar: | export PATH=~/.npm-global/bin:$PATH |
 
