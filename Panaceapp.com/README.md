@@ -45,9 +45,9 @@ npm install npm@latest -g
 git --version
 
 npm install -g bower
-
+```
 ## Instalar polymer CLI
-
+```linux
 npm install -g polymer-cli
 ```
 ## Actualizar permisos
