@@ -1,12 +1,12 @@
 # Instalación de la app con django y paquete de Polymer en una instancia de Google Cloud 
 
-## crear una instancia de Linux con el stack django en bitnami con Google Cloud
+## Crear una instancia de Linux con el stack django en bitnami con Google Cloud
 
 https://bitnami.com/stack/django
 
 ingresar a la terminal y abrir un SSH
 
-## intalar nodejs
+## Intalar nodejs
 
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -15,8 +15,7 @@ sudo apt-get install -y nodejs
 
 sudo apt-get install -y build-essential
 
-
-## instalar global de npm 
+## Instalar global de npm 
 
 mkdir ~/.npm-global
 
@@ -24,124 +23,99 @@ npm config set prefix '~/.npm-global'
 
 sudo nano ~/.profile
 
--- pegar: | export PATH=~/.npm-global/bin:$PATH |
+### Pegar
 
---guardar y volver a actualizar con el comando:
+export PATH=~/.npm-global/bin:$PATH
 
-| source ~/.profile |
+### Guardar y volver a actualizar con el comando
 
--- probar:
+source ~/.profile
 
-| npm install -g jshint |
+### probar
 
-## instalar y comprobar requisitos
+npm install -g jshint
 
-| node --version |
+## Instalar y comprobar requisitos
 
-| npm install npm@latest -g |
+node --version
 
-| git --version |
+npm install npm@latest -g
 
-npm install -g bower |
+git --version
 
-## instalar polymer CLI
+npm install -g bower
 
-| npm install -g polymer-cli |
+## Instalar polymer CLI
 
-## actualizar permisos
+npm install -g polymer-cli
 
-| sudo chmod 777 htdocs |
+## Actualizar permisos
 
-| cd htdocs |
+sudo chmod 777 htdocs
 
-| sudo chmod 777 index.html |
+cd htdocs && sudo chmod 777 index.html
 
-## intalar proyecto
+## Instalar proyecto
 
-| polymer init |
+cd && cd htdocs && polymer init
 
-| polymer serve |
+❯ polymer-2-application - A simple Polymer 2.0 application
 
-## construir
+polymer serve
 
-| cd htdocs |
+##### cerrar SSH.
 
-| polymer build |
+## Actualizar permisos
 
-## instalar layout e instalar componentes.
+cd htdocs sudo chmod 777 bower.json && sudo chmod 777 manifest.json && sudo chmod 777 polymer.json
 
-| bower install PolymerElements/app-layout --save |
+## Instalar layout y componentes en htdocs.
 
-| bower install PolymerElements/paper-icon-button --save |
+cd && cd htdocs
 
-| bower install PolymerElements/iron-icons --save |
+bower install PolymerElements/app-layout --save && bower install PolymerElements/iron-icons --save && bower install PolymerElements/paper-icon-button --save
 
-| bower install PolymerElements/iron-form --save |
+bower install PolymerElements/iron-pages --save && bower install PolymerElements/paper-button --save && bower install PolymerElements/paper-styles --save
 
-| bower install PolymerElements/paper-button --save |
+bower install PolymerElements/iron-selector --save && bower install PolymerElements/paper-listbox --save && bower install PolymerElements/iron-flex-layout --save
 
-| bower install PolymerElements/paper-styles --save |
+bower install PolymerElements/iron-form --save && bower install PolymerElements/paper-styles --save && bower install PolymerElements/iron-ajax --save
 
-| bower install PolymerElements/iron-flex-layout --save |
+bower install PolymerElements/iron-meta --save && bower install PolymerElements/app-route --save 
 
-| bower install PolymerElements/iron-pages --save |
+bower install PolymerElements/iron-demo-helpers --save 
 
-| bower install PolymerElements/iron-selector --save |
-
-| bower install PolymerElements/iron-selector --save |
-
-| bower install PolymerElements/paper-listbox --save |
-
-| bower install PolymerElements/paper-styles --save |
-
-| bower install PolymerElements/iron-meta --save |
-
-| bower install PolymerElements/iron-ajax --save |
-
-| bower install PolymerElements/app-route --save |
-
-## *** necesitan usuario de github
-
-| bower install PolymerElements/iron-page-scroll --save |
-
-| bower install PolymerElements/iron-demo-helpers --save |
-
---- permisos para transferir archivos
-
-## actualizar permisos
-
-| cd htdocs |
-
-| sudo chmod 777 bower.json |
-
-| sudo chmod 777 manifest.json |
-
-| sudo chmod 777 polymer.json |
+bower install PolymerElements/iron-page-scroll --save
 
 ## crear elementos
 
-| mkdir sub-dash && cd sub-dash |
+cd && cd htdocs && mkdir sub-dash && cd sub-dash && polymer init
 
-| polymer init |
+cd && cd htdocs && mkdir obj-dash && cd obj-dash && polymer init
 
-| mkdir obj-dash && cd obj-dash |
+cd && cd htdocs && mkdir ana-dash && cd ana-dash && polymer init
 
-| polymer init |
+cd && cd htdocs && mkdir medico-info && cd medico-info && polymer init
 
-| mkdir ana-dash && cd ana-dash |
+cd && cd htdocs && mkdir config-panacea && cd config-panacea && polymer init
 
-| polymer init |
+cd && cd htdocs && mkdir paciente-info && cd paciente-info && polymer init
+
 
 ## permisos de los ficheros de los elementos
 
-| cd sub-dash |
+cd && cd htdocs && cd sub-dash && sudo chmod 777 sub-dash.html
 
-| sudo chmod 777 sub-dash.html |
+cd && cd htdocs &&  cd obj-dash && sudo chmod 777 obj-dash.html
 
-| cd obj-dash |
+cd && cd htdocs && cd ana-dash && sudo chmod 777 ana-dash.html
 
-| sudo chmod 777 obj-dash.html |
+cd && cd htdocs && cd medico-info && sudo chmod 777 medico-info.html
 
-| cd ana-dash |
+cd && cd htdocs && cd config-panacea && sudo chmod 777 config-panacea.html
 
-| sudo chmod 777 ana-dash.html |
+cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
+
+## construir
+
+cd && cd htdocs && polymer build 
