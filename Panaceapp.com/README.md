@@ -8,8 +8,10 @@ ingresar a la terminal y abrir un SSH
 
 ## Intalar nodejs
 
+```linux
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
+```
 
 ### Para compilar e instalar extensiones nativas
 
