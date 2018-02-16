@@ -4,6 +4,7 @@
 -- Disable foreign key checks so tables can be dropped/created in any order.
 SET FOREIGN_KEY_CHECKS = 0;
 
+-- Change your LOAD DATA LOCAL INFILE.
 
 -- Concept file.
 DROP TABLE IF EXISTS concept;
