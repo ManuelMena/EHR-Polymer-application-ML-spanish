@@ -1,74 +1,70 @@
-# Crear una MV Debian con Google Cloud en Bitnami usando es stack Jruby
-https://bitnami.com/stack/jruby
-# Abrir una terminal SSH
-## Instalar requerimientos
-### Tomcat Setup JAVA_OPTS
-```debian
-shell> cd $CATALINA_HOME/etc
-shell> sudo nano collectd.conf
-```
-cambiar <Plugin java></Plugin>
-```nano
-<Plugin java>
-      JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/opt/stackdriver/collectd/share/collectd/java/collectd-api.jar"
-      JAVA_OPTS "-Drun.config.snomed=/home/mfm5458/snomed/code/config/prod-snomedct/src/main/resources/config.properties"
-      LoadPlugin "org.collectd.java.Foobar"
-#       <Plugin "org.collectd.java.Foobar">
-#         # To be parsed by the plugin
-#       </Plugin>
-</Plugin>
-```
+#Instrucciones crear servidor de Snomed-CT® con Google Cloud y Tomcat®
+## Crear instancia de VM con Tomcat®
+https://console.cloud.google.com/launcher/details/click-to-deploy-images/tomcat
+## Instalar requerimientos en el SSH
 ### Instalar maven
 ```debian
 shell> sudo apt-get install maven
 ```
 ### Instalar Servidor de MySQL 5.6
-#### Obtener Contraseña de Bitnami-VM
 ```linux
 shell> sudo apt-get install mysql-server
-shell> echo "CREATE database snomeddb CHARACTER SET utf8 default collate utf8_bin;" | mysql -u root -p
+shell> sudo su 
+shell> echo "CREATE database snomeddb CHARACTER SET utf8 default collate utf8_bin;" | mysql
+E2sbSjd8
 ```
-# SETUP
-## data
+# SETUP snomed
+```linux
+shell> mkdir ~/snomed
+```
+## Crear directorio data
 ```linux
 shell> mkdir ~/snomed
 shell> cd ~/snomed
 shell> mkdir config data
 shell> git clone https://github.com/WestCoastInformatics/UMLS-Terminology-Server.git code
 ```
-## code
+## Crear directorio code
 ```linux
 shell> cd ~/snomed/code
 shell> git pull
 shell> mvn -Dconfig.artifactId=term-server-config-prod-snomedct clean install
 ```
-## unpack sample data
+## Descomprimir datos de muestra
 ```linux
 shell> cd ~/snomed/code
 shell> unzip ~/snomed/code/config/target/term*.zip -d ~/snomed/data
 ```
-## unpack config and scripts
+## Descomprimir configuración y scripts
 ```linux
 shell> cd ~/snomed
 shell> unzip ~/snomed/code/config/prod-snomedct/target/term*.zip -d config
 shell> ln -s config/bin
 ```
-## Check QA after the load
+## Revisar QA despues de cargar
 ```linux
 shell> cd ~/snomed/code/admin/qa
 shell> mvn install -PDatabase -Drun.config.snomed=/home/ec2-tomcat/config/config.properties
 ```
-
-## RELOADING DATA
+### editar ```JAVA_OPTS``` 
+```debian
+shell> cd $CATALINA_HOME/etc/tomcat8 && sudo nano tomcat8.conf
+```
+#### cambiar <Plugin java></Plugin>
+```nano
+<Plugin java>
+  JAVA_OPTS "-Drun.config.snomed=/home/ec2-tomcat/snomed/config/config.properties file"
+</Plugin>
+```
+## Recargar Datos
+### Desanudar e iniciar la página de mantenimiento
 ```linux
-* Undeploy and start maintenance page
-shell> /bin/rm -rf /var/lib/collectd/work/Catalina/localhost/snomed-server-rest
-shell> /bin/rm -rf /var/lib/collectd/webapps/snomed-server-rest
-shell> /bin/rm -rf /var/lib/collectd/webapps/snomed-server-rest.war
+shell> /bin/rm -rf /var/lib/tomcat8/work/Catalina/localhost/snomed-server-rest
+shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
+shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
 shell> /opt/maint/getMaintHtml.sh start snomed
 ```
-## deploy data
+## Desplegar Datos
 ```linux
 shell> cd ~/snomed/data
 shell> wget https://wci1.s3.amazonaws.com/TermServer/snomed.sql.gz
@@ -78,19 +74,19 @@ shell> wait
 shell> mysqls < ~/fixWindowsExportData.sql
 shell> /bin/rm ~/snomed/data/snomed.sql.gz
 ```
-## recompute indexes (make sure latest code is built)
+## Recomputar indexes
 ```linux
-shell> /bin/rm -rf /var/lib/collectd/indexes/snomedct/*
+shell> /bin/rm -rf /var/lib/tomcat8/indexes/snomedct/*
 shell> cd ~/snomed/code/admin/lucene
 shell> mvn install -PReindex  -Drun.config.umls=/home/ec2-tomcat/snomed/config/config.properties >&! mvn.log &
 ```
-## Deploy and remove maintenance page
+## Desplegar y remover pagina de mantenimiento
 ```linux
 shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/collectd/webapps/snomed-server-rest.war
 shell> /opt/maint/getMaintHtml.sh stop snomed
 ```
-### Remember to remove snomed.sql when finished (it takes a lot of space)
-### REDEPLOY INSTRUCTIONS
+### Recuerde eliminar snomed.sql cuando haya terminado (ocupa mucho espacio)
+### INSTRUCCIONES DE REEMPLEO
 ```linux
 shell> cd ~/snomed/code
 shell> git pull
@@ -101,8 +97,4 @@ shell> /bin/rm -rf /var/lib/tomcat8/work/Catalina/localhost/snomed-server-rest
 shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
 shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
 shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
-```
-## Restaurar Apache2 con bitnami
-```debian
-shell> sudo /opt/bitnami/ctlscript.sh restart apache
 ```
