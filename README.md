@@ -1,4 +1,4 @@
-#### ```Este Archivo compila las instrucciones para crear los servidores de la aplicación en VM de Google Cloud```
+#### ```Resumen de instrucciones para crear los servidores de la aplicación en VM de Google Cloud```
 ------------
 ### [Instalación de Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalaci%C3%B3n-de-polymer-con-django-en-google-cloud-1)
 ### [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-una-base-de-datos-con-snomed-ct-en-google-cloud-sql-1)
