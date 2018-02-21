@@ -160,7 +160,7 @@ mysql> set db_name=[snomed?]
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
 
-# Instrucciones crear servidor de Snomed-CT® con Google Cloud y Tomcat®
+# Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®
 ------------
 ## Crear instancia de VM con Tomcat®
 https://console.cloud.google.com/launcher/details/click-to-deploy-images/tomcat
