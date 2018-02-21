@@ -1,6 +1,6 @@
 #### ```Instrucciones para crear los servidores de la aplicación en VMs de Google Cloud```
 ------------
-### [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalaci%C3%B3n-de-polymer-con-django-en-google-cloud-1)
+### [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalar-polymer-con-django-en-google-cloud-1)
 ### [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-una-base-de-datos-con-snomed-ct-en-google-cloud-sql-1)
 ### [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-un-servidor-de-snomed-ct-con-google-cloud-y-tomcat-1)
 ### [Instalar Google Compute EngineR con Rstudio](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalar-google-compute-enginer-con-rstudio-1)
