@@ -5,7 +5,7 @@
 ### [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-un-servidor-de-snomed-ct-con-google-cloud-y-tomcat-1)
 ### [Instalar Google Compute EngineR con Rstudio](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalar-google-compute-enginer-con-rstudio-1)
 ------------
-# Instalar Polymer con Django en Google Cloud 
+# [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/tree/master/DJangoPolymer)
 ------------
 ## Crear una instancia de Linux con el stack django en bitnami con Google Cloud
 https://bitnami.com/stack/django
@@ -98,7 +98,7 @@ cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 cd && cd htdocs && polymer build 
 ```
 ------------
-# Crear una base de datos con Snomed-CT® en Google Cloud SQL
+# [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/tree/master/CloudMySQL)
 ------------
 ## Crear instancia de Cloud SQL con MySQL 5.6
 https://console.cloud.google.com
@@ -162,7 +162,7 @@ mysql> set db_name=[snomed?]
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
 ------------
-# Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®
+# [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/tree/master/TomcatMavenSNOMED-CT)
 ------------
 ## Crear instancia de VM con Tomcat®
 https://console.cloud.google.com/launcher/details/click-to-deploy-images/tomcat
@@ -264,7 +264,7 @@ shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
 shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
 ```
 ------------
-# Instalar Google Compute EngineR con Rstudio
+# [Instalar Google Compute EngineR con Rstudio](https://github.com/ManuelMena/Panacea/tree/master/GoogleComputeEngineR)
 ------------
 ```
 !!! Lista de Comandos con fallas. Por favor contribuir. 
