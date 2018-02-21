@@ -1,4 +1,4 @@
-#### ```Resumen de instrucciones para crear los servidores de la aplicación en VM de Google Cloud```
+#### ```Instrucciones para crear los servidores de la aplicación en VMs de Google Cloud```
 ------------
 ### [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalaci%C3%B3n-de-polymer-con-django-en-google-cloud-1)
 ### [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-una-base-de-datos-con-snomed-ct-en-google-cloud-sql-1)
@@ -97,6 +97,7 @@ cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 ```linux
 cd && cd htdocs && polymer build 
 ```
+
 ------------
 # [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/tree/master/CloudMySQL)
 ------------
@@ -161,6 +162,7 @@ mysql> set db_name=[snomed?]
 6. Cambie las configuraciones en ```mysql_tables.sql``` del script para su entorno en ```LOAD DATA LOCAL INFILE```
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
+
 ------------
 # [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/tree/master/TomcatMavenSNOMED-CT)
 ------------
@@ -263,6 +265,7 @@ shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
 shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
 shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
 ```
+
 ------------
 # [Instalar Google Compute EngineR con Rstudio](https://github.com/ManuelMena/Panacea/tree/master/GoogleComputeEngineR)
 ------------

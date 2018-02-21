@@ -1,4 +1,6 @@
-# Instalar Google Compute EngineR con Rstudio
+------------
+# [Instalar Google Compute EngineR con Rstudio](https://github.com/ManuelMena/Panacea/tree/master/GoogleComputeEngineR)
+------------
 ```
 !!! Lista de Comandos con fallas. Por favor contribuir. 
 ```

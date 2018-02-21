@@ -1,4 +1,6 @@
-# Instrucciones crear servidor de Snomed-CT® con Google Cloud y Tomcat®
+------------
+# [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/tree/master/TomcatMavenSNOMED-CT)
+------------
 ## Crear instancia de VM con Tomcat®
 https://console.cloud.google.com/launcher/details/click-to-deploy-images/tomcat
 ## Instalar requerimientos en el SSH
@@ -82,7 +84,7 @@ shell> mvn install -PReindex  -Drun.config.umls=/home/ec2-tomcat/snomed/config/c
 ```
 ## Desplegar y remover pagina de mantenimiento
 ```linux
-shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
+shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/collectd/webapps/snomed-server-rest.war
 shell> /opt/maint/getMaintHtml.sh stop snomed
 ```
 ### Recuerde eliminar snomed.sql cuando haya terminado (ocupa mucho espacio)
@@ -98,3 +100,5 @@ shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
 shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
 shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
 ```
+## License & Copyright
+© Manuel Mena. Tetraktys | Decisiones Acertadas.

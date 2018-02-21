@@ -1,4 +1,6 @@
-# Instrucciones crear una base de datos con Snomed-CT® en Google Cloud SQL
+------------
+# [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/tree/master/CloudMySQL)
+------------
 ## Crear instancia de Cloud SQL con MySQL 5.6
 https://console.cloud.google.com
 ## Crear Usuario en Cloud SQL y una base de datos [snomed]
@@ -21,7 +23,7 @@ shell> exit
 https://cloud.google.com/sql/docs/mysql/admin-tools
 
 # Instalación
-------------
+
 1. Descargue los archivos de liberación de SNOMED CT en formato ZIP. ! debe obtener una licencia de NLM
 
 Pueden encontrar los archivos aquí:
@@ -60,3 +62,6 @@ mysql> set db_name=[snomed?]
 6. Cambie las configuraciones en ```mysql_tables.sql``` del script para su entorno en ```LOAD DATA LOCAL INFILE```
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
+
+## License & Copyright
+© Manuel Mena. Tetraktys | Decisiones Acertadas.
