@@ -52,5 +52,5 @@ gce_global_project([project?])
 gce_global_zone([zone?])
 default_project <- gce_get_project([normbre del proyecto?])
 ```
-## License & copyright
+## License & Copyright
 © Manuel Mena. Tetraktys | Decisiones Acertadas.
