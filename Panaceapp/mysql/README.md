@@ -19,7 +19,8 @@ shell> exit
 ```
 ## Crear Una conexión de Cloud SQL con MySQL Workbench
 https://cloud.google.com/sql/docs/mysql/admin-tools
-Instalación
+
+# Instalación
 ------------
 1. Descargue los archivos de liberación de SNOMED CT en formato ZIP. ! debe obtener una licencia de NLM
 
