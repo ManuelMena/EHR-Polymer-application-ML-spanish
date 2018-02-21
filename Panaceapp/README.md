@@ -120,7 +120,7 @@ cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 ```linux
 cd && cd htdocs && polymer build 
 ```
-#Instrucciones crear servidor de Snomed-CT® con Google Cloud y Tomcat®
+# Instrucciones crear servidor de Snomed-CT® con Google Cloud y Tomcat®
 ## Crear instancia de VM con Tomcat®
 https://console.cloud.google.com/launcher/details/click-to-deploy-images/tomcat
 ## Instalar requerimientos en el SSH
