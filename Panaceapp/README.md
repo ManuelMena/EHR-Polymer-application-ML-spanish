@@ -96,7 +96,7 @@ cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 ```linux
 cd && cd htdocs && polymer build 
 ```
-# Instrucciones crear una base de datos con Snomed-CT® en Google Cloud SQL
+# Crear una base de datos con Snomed-CT® en Google Cloud SQL
 ------------
 ## Crear instancia de Cloud SQL con MySQL 5.6
 https://console.cloud.google.com
