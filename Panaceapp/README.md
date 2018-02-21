@@ -1,3 +1,5 @@
+# Compilación de Instrucciones 
+
 # Instalación de Polymer con Django en Google Cloud 
 
 ## Crear una instancia de Linux con el stack django en bitnami con Google Cloud
