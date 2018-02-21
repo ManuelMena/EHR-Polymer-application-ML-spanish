@@ -1,7 +1,7 @@
 ```Este Archivo compila las instrucciones para crear los servidores de la aplicación en VM de Google Cloud```
-Instalación de Polymer con Django en Google Cloud 
-Crear una base de datos con Snomed-CT® en Google Cloud SQL
-Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®
+[Instalación de Polymer con Django en Google Cloud]()
+[Crear una base de datos con Snomed-CT® en Google Cloud SQL]()
+[Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®]()
 # Instalación de Polymer con Django en Google Cloud 
 ------------
 ## Crear una instancia de Linux con el stack django en bitnami con Google Cloud
