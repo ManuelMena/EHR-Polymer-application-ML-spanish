@@ -96,6 +96,7 @@ cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 ```linux
 cd && cd htdocs && polymer build 
 ```
+------------
 # Crear una base de datos con Snomed-CT® en Google Cloud SQL
 ------------
 ## Crear instancia de Cloud SQL con MySQL 5.6
@@ -120,7 +121,7 @@ shell> exit
 https://cloud.google.com/sql/docs/mysql/admin-tools
 
 # Instalación
-------------
+
 1. Descargue los archivos de liberación de SNOMED CT en formato ZIP. ! debe obtener una licencia de NLM
 
 Pueden encontrar los archivos aquí:
@@ -159,7 +160,7 @@ mysql> set db_name=[snomed?]
 6. Cambie las configuraciones en ```mysql_tables.sql``` del script para su entorno en ```LOAD DATA LOCAL INFILE```
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
-
+------------
 # Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®
 ------------
 ## Crear instancia de VM con Tomcat®
@@ -261,3 +262,61 @@ shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
 shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
 shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
 ```
+------------
+# Instalar Google Compute EngineR con Rstudio
+------------
+```
+!!! Lista de Comandos con fallas. Por favor contribuir. 
+```
+## Instalar Liberias y opciones
+```R
+R> install.packages("googleComputeEngineR")
+R> install.packages("googleAuthR")
+R> options("googleAuthR.client_id" = "[.apps.googleusercontent.com]")
+R> options("googleAuthR.client_secret" = "[https://developers.google.com/identity/protocols/OAuth2ServiceAccount]")
+R> options("googleAuthR.scopes.selected" = "[https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html]")
+R> options("googleAuthR.scopes" = "[https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html]")
+R> library(googleComputeEngineR)
+R> library(googleAuthR)
+```
+## Crear credenciales
+```R
+R> library(googlesheets)
+R> library(httr)
+R> gar_create_api_skeleton(filename, api_json, format = TRUE)
+R> gar_create_package(api_json, directory, rstudio = TRUE, check = TRUE, github = TRUE, format = TRUE, overwrite = TRUE)
+R> file.remove('.httr-oauth') 
+R> oauth2.0_token(endpoint = oauth_endpoints("google"), app = oauth_app("google"), key = getOption("googlesheets.client_id"), 
+   secret = getOption("googlesheets.client_secret")),
+R> scope = c("https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"), use_oob = TRUE, cache = TRUE)
+R> gs_ls() 
+
+R> library(googlesheets) 
+R> options(httr_oob_default=TRUE) 
+R> gs_ls()
+```
+## Generar API
+```R 
+R> gar_api_generator()
+R> gar_api_generator(baseURI, http_header = c("GET", "POST", "PUT", "DELETE", "PATCH"), path_args = NULL, pars_args = NULL, 
+   data_parse_function = NULL, customConfig = NULL, simplifyVector = getOption("googleAuthR.jsonlite.simplifyVector"), checkTrailingSlash = TRUE)
+```
+## Setup
+```R 
+R> gar_api_generator()
+R> gar_api_generator(baseURI, http_header = c("GET", "POST", "PUT", "DELETE", "PATCH"), path_args = NULL, pars_args = NULL, 
+   data_parse_function = NULL, customConfig = NULL, simplifyVector = getOption("googleAuthR.jsonlite.simplifyVector"), checkTrailingSlash = TRUE)
+R> project <- "[normbre del proyecto?]"
+R> zone <- "[us-west1-b?]"
+R> account_key <- "[.json?]"
+R> Sys.setenv(GCE_AUTH_FILE = account_key, GCE_DEFAULT_PROJECT_ID = [project?], GCE_DEFAULT_ZONE = [zone?])
+R> gce_auth()
+```
+## Establecer proyecto global predeterminado
+```
+gce_global_project([project?])
+gce_global_zone([zone?])
+default_project <- gce_get_project([normbre del proyecto?])
+```
+## License & Copyright
+© Manuel Mena. Tetraktys | Decisiones Acertadas.
