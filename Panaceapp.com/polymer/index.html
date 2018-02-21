@@ -327,6 +327,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	</div>
 	<script src="modalperm.js"></script>
    </div> 
+   
+   <-- aca debe ir todos los input-->
+   
    <div class="create">
 	<paper-icon-button icon="create" id="myBtncreate"></paper-icon-button>
 	<div id="myModalcreate" class="modalcreate">
@@ -336,6 +339,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		  <h3>Edición</h3>
 		</div>
 		<div class="modal-body">
+		<iron-form>
+		<input type="text" id="mc"></input>
+		<input type="text" id="ea" maxlength="200px"></input>
+		<input type="text" id="mc"></input>
+		</iron-form>
 		</div>
 		<div class="modal-footer">
 		<span class="action"><paper-icon-button icon="cloud-upload"></paper-icon-button></span>
@@ -344,6 +352,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	</div>
 	<script src="modalcreate.js"></script>
    </div>
+   
    <div class="archive">
 	<paper-icon-button icon="archive" onclick="myFunctioncheck()"></paper-icon-button>
 	<script>
