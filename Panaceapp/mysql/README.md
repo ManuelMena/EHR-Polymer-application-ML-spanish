@@ -26,7 +26,7 @@ https://cloud.google.com/sql/docs/mysql/admin-tools
 
 Pueden encontrar los archivos aquí:
 
-* Archivos de versión de SNOMED CT® US Edition:https://www.nlm.nih.gov/healthit/snomedct/us_edition.html
+* Archivos de versión de SNOMED CT® US Edition: https://www.nlm.nih.gov/healthit/snomedct/us_edition.html
 * Archivos de versión de SNOMED CT® International Edition: https://www.nlm.nih.gov/healthit/snomedct/international.html
 
 2. Descomprima los archivos en una carpeta de lanzamiento
