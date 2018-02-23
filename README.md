@@ -12,52 +12,52 @@ https://bitnami.com/stack/django
 ingresar a la terminal y abrir un SSH
 ## Intalar nodejs
 ```linux
-shell> curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
-shell> sudo apt-get install -y nodejs
+$ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
 ```
 ### Para compilar e instalar extensiones nativas
 ```linux 
-shell> sudo apt-get install -y build-essential
+$ sudo apt-get install -y build-essential
 ```
 ## Instalar global de npm 
 ```linnux
-shell> mkdir ~/.npm-global
-shell> npm config set prefix '~/.npm-global'
-shell> sudo nano ~/.profile
+$ mkdir ~/.npm-global
+$ npm config set prefix '~/.npm-global'
+$ sudo nano ~/.profile
 ```
 ### Pegar
 ```linux
-shell> export PATH=~/.npm-global/bin:$PATH
+$ export PATH=~/.npm-global/bin:$PATH
 ```
 ### Guardar y volver a actualizar con el comando
 ```linux
-shell> source ~/.profile
+$ source ~/.profile
 ```
 ### probar
 ```linux
-shell> npm install -g jshint
+$ npm install -g jshint
 ```
 ## Instalar y comprobar requisitos
 ```linux
-shell> node --version
-shell> npm install npm@latest -g
-shell> git --version
-shell> npm install -g bower
+$ node --version
+$ npm install npm@latest -g
+$ git --version
+$ npm install -g bower
 ```
 ## Instalar polymer CLI
 ```linux
-shell> npm install -g polymer-cli
+$ npm install -g polymer-cli
 ```
 ## Actualizar permisos
 ```linux
-shell> sudo chmod 777 htdocs
-shell> cd htdocs && sudo chmod 777 index.html
+$ sudo chmod 777 htdocs
+$ cd htdocs && sudo chmod 777 index.html
 ```
 ## Instalar proyecto
 ```linux
-shell> cd && cd htdocs && polymer init
-shell> ❯ polymer-2-application - A simple Polymer 2.0 application
-shell> polymer serve
+$ cd && cd htdocs && polymer init
+$ ❯ polymer-2-application - A simple Polymer 2.0 application
+$ polymer serve
 ```
 ##### cerrar SSH.
 ## Actualizar permisos
@@ -95,7 +95,7 @@ shell> cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 ```
 ## construir
 ```linux
-shell> cd && cd htdocs && polymer build 
+$> cd && cd htdocs && polymer build 
 ```
 
 ------------
@@ -109,15 +109,12 @@ https://cloud.google.com/sql/docs/mysql/create-manage-databases
 https://dev.mysql.com/downloads/workbench/
 ## Conocer tu IP publica para autorizar red en Cloud SQL (en cada conexión)
 ```cdm
-shell> ftp
-shell> open ftp.opera.com
-* usuario
-shell> anonymous
-shell> 
-* enter
-shell> literal stat
-shell> close
-shell> exit
+$> ftp
+$> open ftp.opera.com
+$> anonymous
+$> literal stat
+$> close
+$> exit
 ```
 ## Crear Una conexión de Cloud SQL con MySQL Workbench
 https://cloud.google.com/sql/docs/mysql/admin-tools
