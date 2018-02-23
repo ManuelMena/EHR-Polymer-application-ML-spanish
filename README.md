@@ -285,32 +285,32 @@ library(googlesheets)
 library(httr)
 gar_create_api_skeleton(filename, api_json, format = TRUE)
 gar_create_package(api_json, directory, rstudio = TRUE, check = TRUE, github = TRUE, format = TRUE, overwrite = TRUE)
-R> file.remove('.httr-oauth') 
-R> oauth2.0_token(endpoint = oauth_endpoints("google"), app = oauth_app("google"), key = getOption("googlesheets.client_id"), 
+file.remove('.httr-oauth') 
+oauth2.0_token(endpoint = oauth_endpoints("google"), app = oauth_app("google"), key = getOption("googlesheets.client_id"), 
    secret = getOption("googlesheets.client_secret")),
-R> scope = c("https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"), use_oob = TRUE, cache = TRUE)
-R> gs_ls() 
+scope = c("https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"), use_oob = TRUE, cache = TRUE)
+gs_ls() 
 
-R> library(googlesheets) 
-R> options(httr_oob_default=TRUE) 
-R> gs_ls()
+library(googlesheets) 
+options(httr_oob_default=TRUE) 
+gs_ls()
 ```
 ## Generar API
 ```R 
-R> gar_api_generator()
-R> gar_api_generator(baseURI, http_header = c("GET", "POST", "PUT", "DELETE", "PATCH"), path_args = NULL, pars_args = NULL, 
+gar_api_generator()
+gar_api_generator(baseURI, http_header = c("GET", "POST", "PUT", "DELETE", "PATCH"), path_args = NULL, pars_args = NULL, 
    data_parse_function = NULL, customConfig = NULL, simplifyVector = getOption("googleAuthR.jsonlite.simplifyVector"), checkTrailingSlash = TRUE)
 ```
 ## Setup
 ```R 
-R> gar_api_generator()
-R> gar_api_generator(baseURI, http_header = c("GET", "POST", "PUT", "DELETE", "PATCH"), path_args = NULL, pars_args = NULL, 
+gar_api_generator()
+gar_api_generator(baseURI, http_header = c("GET", "POST", "PUT", "DELETE", "PATCH"), path_args = NULL, pars_args = NULL, 
    data_parse_function = NULL, customConfig = NULL, simplifyVector = getOption("googleAuthR.jsonlite.simplifyVector"), checkTrailingSlash = TRUE)
-R> project <- "[normbre del proyecto?]"
-R> zone <- "[us-west1-b?]"
-R> account_key <- "[.json?]"
-R> Sys.setenv(GCE_AUTH_FILE = account_key, GCE_DEFAULT_PROJECT_ID = [project?], GCE_DEFAULT_ZONE = [zone?])
-R> gce_auth()
+project <- "[normbre del proyecto?]"
+zone <- "[us-west1-b?]"
+account_key <- "[.json?]"
+Sys.setenv(GCE_AUTH_FILE = account_key, GCE_DEFAULT_PROJECT_ID = [project?], GCE_DEFAULT_ZONE = [zone?])
+gce_auth()
 ```
 ## Establecer proyecto global predeterminado
 ```
