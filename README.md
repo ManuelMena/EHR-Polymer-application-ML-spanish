@@ -160,6 +160,16 @@ set db_name=[snomed?]
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
 
+8. Termine de cargar los datos y pruebe con un query
+```mysql
+use snomed;
+show tables;
+select * from concept limit 1000;
+select * from conceptpreferredname limit 1000;
+select * from conceptwithnames limit 1000;
+select * from relationshipwithnames limit 1000;
+```
+
 ------------
 # [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/tree/master/TomcatMavenSNOMED-CT)
 ------------
