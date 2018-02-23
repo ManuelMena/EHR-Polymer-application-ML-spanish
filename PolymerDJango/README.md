@@ -62,7 +62,7 @@ $ polymer serve
 ##### cerrar SSH.
 ## Actualizar permisos
 ```
-$ cd htdocs sudo chmod 777 bower.json && sudo chmod 777 manifest.json && sudo chmod 777 polymer.json
+$ cd htdocs && sudo chmod 777 bower.json && sudo chmod 777 manifest.json && sudo chmod 777 polymer.json
 ```
 ## Instalar layout y componentes en htdocs.
 ```linux
