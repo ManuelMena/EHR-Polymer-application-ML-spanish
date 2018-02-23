@@ -62,40 +62,40 @@ $ polymer serve
 ##### cerrar SSH.
 ## Actualizar permisos
 ```
-shell> cd htdocs sudo chmod 777 bower.json && sudo chmod 777 manifest.json && sudo chmod 777 polymer.json
+$ cd htdocs sudo chmod 777 bower.json && sudo chmod 777 manifest.json && sudo chmod 777 polymer.json
 ```
 ## Instalar layout y componentes en htdocs.
 ```linux
-shell> cd && cd htdocs
-shell> bower install PolymerElements/app-layout --save && bower install PolymerElements/iron-icons --save && bower install PolymerElements/paper-icon-button --save
-shell> bower install PolymerElements/iron-pages --save && bower install PolymerElements/paper-button --save && bower install PolymerElements/paper-styles --save
-shell> bower install PolymerElements/iron-selector --save && bower install PolymerElements/paper-listbox --save && bower install PolymerElements/iron-flex-layout --save
-shell> bower install PolymerElements/iron-form --save && bower install PolymerElements/paper-styles --save && bower install PolymerElements/iron-ajax --save
-shell> bower install PolymerElements/iron-meta --save && bower install PolymerElements/app-route --save 
-shell> bower install PolymerElements/iron-demo-helpers --save 
-shell> bower install PolymerElements/iron-page-scroll --save
+$ cd && cd htdocs
+$ bower install PolymerElements/app-layout --save && bower install PolymerElements/iron-icons --save && bower install PolymerElements/paper-icon-button --save
+$ bower install PolymerElements/iron-pages --save && bower install PolymerElements/paper-button --save && bower install PolymerElements/paper-styles --save
+$ bower install PolymerElements/iron-selector --save && bower install PolymerElements/paper-listbox --save && bower install PolymerElements/iron-flex-layout --save
+$ bower install PolymerElements/iron-form --save && bower install PolymerElements/paper-styles --save && bower install PolymerElements/iron-ajax --save
+$ bower install PolymerElements/iron-meta --save && bower install PolymerElements/app-route --save 
+$ bower install PolymerElements/iron-demo-helpers --save 
+$ bower install PolymerElements/iron-page-scroll --save
 ```
 ## crear elementos
 ```linux
-shell> cd && cd htdocs && mkdir sub-dash && cd sub-dash && polymer init
-shell> cd && cd htdocs && mkdir obj-dash && cd obj-dash && polymer init
-shell> cd && cd htdocs && mkdir ana-dash && cd ana-dash && polymer init
-shell> cd && cd htdocs && mkdir medico-info && cd medico-info && polymer init
-shell> cd && cd htdocs && mkdir config-panacea && cd config-panacea && polymer init
-shell> cd && cd htdocs && mkdir paciente-info && cd paciente-info && polymer init
+$ cd && cd htdocs && mkdir sub-dash && cd sub-dash && polymer init
+$ cd && cd htdocs && mkdir obj-dash && cd obj-dash && polymer init
+$ cd && cd htdocs && mkdir ana-dash && cd ana-dash && polymer init
+$ cd && cd htdocs && mkdir medico-info && cd medico-info && polymer init
+$ cd && cd htdocs && mkdir config-panacea && cd config-panacea && polymer init
+$ cd && cd htdocs && mkdir paciente-info && cd paciente-info && polymer init
 ```
 ## permisos de los ficheros de los elementos
 ```linux
-shell> cd && cd htdocs && cd sub-dash && sudo chmod 777 sub-dash.html
-shell> cd && cd htdocs &&  cd obj-dash && sudo chmod 777 obj-dash.html
-shell> cd && cd htdocs && cd ana-dash && sudo chmod 777 ana-dash.html
-shell> cd && cd htdocs && cd medico-info && sudo chmod 777 medico-info.html
-shell> cd && cd htdocs && cd config-panacea && sudo chmod 777 config-panacea.html
-shell> cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
+$ cd && cd htdocs && cd sub-dash && sudo chmod 777 sub-dash.html
+$ cd && cd htdocs &&  cd obj-dash && sudo chmod 777 obj-dash.html
+$ cd && cd htdocs && cd ana-dash && sudo chmod 777 ana-dash.html
+$ cd && cd htdocs && cd medico-info && sudo chmod 777 medico-info.html
+$ cd && cd htdocs && cd config-panacea && sudo chmod 777 config-panacea.html
+$ cd && cd htdocs && cd paciente-info && sudo chmod 777 paciente-info.html
 ```
 ## construir
 ```linux
-$> cd && cd htdocs && polymer build 
+$ cd && cd htdocs && polymer build 
 ```
 
 ------------
@@ -109,12 +109,12 @@ https://cloud.google.com/sql/docs/mysql/create-manage-databases
 https://dev.mysql.com/downloads/workbench/
 ## Conocer tu IP publica para autorizar red en Cloud SQL (en cada conexión)
 ```cdm
-$> ftp
-$> open ftp.opera.com
-$> anonymous
-$> literal stat
-$> close
-$> exit
+$ ftp
+$ open ftp.opera.com
+$ anonymous
+$ literal stat
+$ close
+$ exit
 ```
 ## Crear Una conexión de Cloud SQL con MySQL Workbench
 https://cloud.google.com/sql/docs/mysql/admin-tools
@@ -150,10 +150,10 @@ populate_oracle_db.sh
 5. Edite el su entorno en el archivo de Windows "populate_mysql_db.bat" y en Linux / Unix / MacOS "populate_oracle_db.sh" 
 
 ```mysql
-mysql> set MYSQL_HOME=[Nombre de conexión con la instancia Cloud SQL]
-mysql> set user=[Cuentas de usuario de MySQL]
-mysql> set password=[Contraseña de usuario de MySQL]
-mysql> set db_name=[snomed?]
+set MYSQL_HOME=[Nombre de conexión con la instancia Cloud SQL]
+set user=[Cuentas de usuario de MySQL]
+set password=[Contraseña de usuario de MySQL]
+set db_name=[snomed?]
 ```
   
 6. Cambie las configuraciones en ```mysql_tables.sql``` del script para su entorno en ```LOAD DATA LOCAL INFILE```
@@ -172,50 +172,49 @@ shell> sudo apt-get install maven
 ```
 ### Instalar Servidor de MySQL 5.6
 ```linux
-shell> sudo apt-get install mysql-server
-shell> sudo su 
-shell> echo "CREATE database snomeddb CHARACTER SET utf8 default collate utf8_bin;" | mysql
-E2sbSjd8
+$ sudo apt-get install mysql-server
+$ sudo su 
+$ echo "CREATE database snomeddb CHARACTER SET utf8 default collate utf8_bin;" | mysql
 ```
 # SETUP snomed
 ```linux
-shell> mkdir ~/snomed
+$ mkdir ~/snomed
 ```
 ## Crear directorio data
 ```linux
-shell> mkdir ~/snomed
-shell> cd ~/snomed
-shell> mkdir config data
-shell> git clone https://github.com/WestCoastInformatics/UMLS-Terminology-Server.git code
+$ mkdir ~/snomed
+$ cd ~/snomed
+$ mkdir config data
+$ git clone https://github.com/WestCoastInformatics/UMLS-Terminology-Server.git code
 ```
 ## Crear directorio code
 ```linux
-shell> cd ~/snomed/code
-shell> git pull
-shell> mvn -Dconfig.artifactId=term-server-config-prod-snomedct clean install
+$ cd ~/snomed/code
+$ git pull
+$ mvn -Dconfig.artifactId=term-server-config-prod-snomedct clean install
 ```
 ## Descomprimir datos de muestra
 ```linux
-shell> cd ~/snomed/code
-shell> unzip ~/snomed/code/config/target/term*.zip -d ~/snomed/data
+$ cd ~/snomed/code
+$ unzip ~/snomed/code/config/target/term*.zip -d ~/snomed/data
 ```
 ## Descomprimir configuración y scripts
 ```linux
-shell> cd ~/snomed
-shell> unzip ~/snomed/code/config/prod-snomedct/target/term*.zip -d config
-shell> ln -s config/bin
+$ cd ~/snomed
+$ unzip ~/snomed/code/config/prod-snomedct/target/term*.zip -d config
+$ ln -s config/bin
 ```
 ## Revisar QA despues de cargar
 ```linux
-shell> cd ~/snomed/code/admin/qa
-shell> mvn install -PDatabase -Drun.config.snomed=/home/ec2-tomcat/config/config.properties
+$ cd ~/snomed/code/admin/qa
+$ mvn install -PDatabase -Drun.config.snomed=/home/ec2-tomcat/config/config.properties
 ```
 ### editar ```JAVA_OPTS``` 
 ```debian
-shell> cd $CATALINA_HOME/etc/tomcat8 && sudo nano tomcat8.conf
+$ cd $CATALINA_HOME/etc/tomcat8 && sudo nano tomcat8.conf
 ```
 #### cambiar <Plugin java></Plugin>
-```nano
+```config
 <Plugin java>
   JAVA_OPTS "-Drun.config.snomed=/home/ec2-tomcat/snomed/config/config.properties file"
 </Plugin>
@@ -223,44 +222,44 @@ shell> cd $CATALINA_HOME/etc/tomcat8 && sudo nano tomcat8.conf
 ## Recargar Datos
 ### Desanudar e iniciar la página de mantenimiento
 ```linux
-shell> /bin/rm -rf /var/lib/tomcat8/work/Catalina/localhost/snomed-server-rest
-shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
-shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
-shell> /opt/maint/getMaintHtml.sh start snomed
+$ /bin/rm -rf /var/lib/tomcat8/work/Catalina/localhost/snomed-server-rest
+$ /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
+$ /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
+$ /opt/maint/getMaintHtml.sh start snomed
 ```
 ## Desplegar Datos
 ```linux
-shell> cd ~/snomed/data
-shell> wget https://wci1.s3.amazonaws.com/TermServer/snomed.sql.gz
-shell> mysqls < ~/snomed/code/admin/mojo/src/main/resources/truncate_all.sql
-shell> gunzip -c snomed.sql.gz | mysqls &
-shell> wait
-shell> mysqls < ~/fixWindowsExportData.sql
-shell> /bin/rm ~/snomed/data/snomed.sql.gz
+$ cd ~/snomed/data
+$ wget https://wci1.s3.amazonaws.com/TermServer/snomed.sql.gz
+$ mysqls < ~/snomed/code/admin/mojo/src/main/resources/truncate_all.sql
+$ gunzip -c snomed.sql.gz | mysqls &
+$ wait
+$ mysqls < ~/fixWindowsExportData.sql
+$ /bin/rm ~/snomed/data/snomed.sql.gz
 ```
 ## Recomputar indexes
 ```linux
-shell> /bin/rm -rf /var/lib/tomcat8/indexes/snomedct/*
-shell> cd ~/snomed/code/admin/lucene
-shell> mvn install -PReindex  -Drun.config.umls=/home/ec2-tomcat/snomed/config/config.properties >&! mvn.log &
+$ /bin/rm -rf /var/lib/tomcat8/indexes/snomedct/*
+$ cd ~/snomed/code/admin/lucene
+$ mvn install -PReindex  -Drun.config.umls=/home/ec2-tomcat/snomed/config/config.properties >&! mvn.log &
 ```
 ## Desplegar y remover pagina de mantenimiento
 ```linux
-shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/collectd/webapps/snomed-server-rest.war
-shell> /opt/maint/getMaintHtml.sh stop snomed
+$ /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/collectd/webapps/snomed-server-rest.war
+$ /opt/maint/getMaintHtml.sh stop snomed
 ```
 ### Recuerde eliminar snomed.sql cuando haya terminado (ocupa mucho espacio)
 ### INSTRUCCIONES DE REEMPLEO
 ```linux
-shell> cd ~/snomed/code
-shell> git pull
-shell> mvn -Drun.config.label=ts -Dconfig.artifactId=term-server-config-prod-snomedct clean install
+$ cd ~/snomed/code
+$ git pull
+$ mvn -Drun.config.label=ts -Dconfig.artifactId=term-server-config-prod-snomedct clean install
 ```
 ```linux
-shell> /bin/rm -rf /var/lib/tomcat8/work/Catalina/localhost/snomed-server-rest
-shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
-shell> /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
-shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
+$ /bin/rm -rf /var/lib/tomcat8/work/Catalina/localhost/snomed-server-rest
+$ /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest
+$ /bin/rm -rf /var/lib/tomcat8/webapps/snomed-server-rest.war
+$ /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat8/webapps/snomed-server-rest.war
 ```
 
 ------------
@@ -271,21 +270,21 @@ shell> /bin/cp -f ~/snomed/code/rest/target/umls-server-rest*war /var/lib/tomcat
 ```
 ## Instalar Liberias y opciones
 ```R
-R> install.packages("googleComputeEngineR")
-R> install.packages("googleAuthR")
-R> options("googleAuthR.client_id" = "[.apps.googleusercontent.com]")
-R> options("googleAuthR.client_secret" = "[https://developers.google.com/identity/protocols/OAuth2ServiceAccount]")
-R> options("googleAuthR.scopes.selected" = "[https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html]")
-R> options("googleAuthR.scopes" = "[https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html]")
-R> library(googleComputeEngineR)
-R> library(googleAuthR)
+install.packages("googleComputeEngineR")
+install.packages("googleAuthR")
+options("googleAuthR.client_id" = "[.apps.googleusercontent.com]")
+options("googleAuthR.client_secret" = "[https://developers.google.com/identity/protocols/OAuth2ServiceAccount]")
+options("googleAuthR.scopes.selected" = "[https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html]")
+options("googleAuthR.scopes" = "[https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html]")
+library(googleComputeEngineR)
+library(googleAuthR)
 ```
 ## Crear credenciales
 ```R
-R> library(googlesheets)
-R> library(httr)
-R> gar_create_api_skeleton(filename, api_json, format = TRUE)
-R> gar_create_package(api_json, directory, rstudio = TRUE, check = TRUE, github = TRUE, format = TRUE, overwrite = TRUE)
+library(googlesheets)
+library(httr)
+gar_create_api_skeleton(filename, api_json, format = TRUE)
+gar_create_package(api_json, directory, rstudio = TRUE, check = TRUE, github = TRUE, format = TRUE, overwrite = TRUE)
 R> file.remove('.httr-oauth') 
 R> oauth2.0_token(endpoint = oauth_endpoints("google"), app = oauth_app("google"), key = getOption("googlesheets.client_id"), 
    secret = getOption("googlesheets.client_secret")),
