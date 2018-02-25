@@ -18,6 +18,7 @@ Markdown
 ## Encabezado 2
 ### Encabezado 3
 *Enfasis*
+
 LaTeX
 ---
 ```txt
@@ -27,13 +28,7 @@ m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
 \end{align}
 \end{document}
 ```
-Resultado
----
-\begin{align}
-E &= mc^2                              \\
-m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
-\end{align}
-\end{document}
+![LaTeX e=mc2](https://storage.googleapis.com/panaceaapp/emclatex.png)
 
 
 2. Los editores de texto para código son esenciales para este meteodo y recomendamos usar [Sublime Text](https://www.sublimetext.com/).
