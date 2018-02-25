@@ -21,7 +21,25 @@ Resultado
 ## Encabezado 2
 ### Encabezado 3
 *Enfasis*
+
+LaTeX
 ---
+```txt
+\begin{align}
+E &= mc^2                              \\
+m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{align}
+\end{document}
+```
+Resultado
+---
+\begin{align}
+E &= mc^2                              \\
+m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{align}
+\end{document}
+
+
 2. Los editores de texto para código son esenciales para este meteodo y recomendamos usar [Sublime Text](https://www.sublimetext.com/).
 3. Ingresa GitHub Registra un usuario e ingresa a: [github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app](https://github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app) Clona o descarga este repositorio en tu PC.
 4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues, ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual con el stack [DJango](https://bitnami.com/stack/django).
