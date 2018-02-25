@@ -64,7 +64,7 @@ HTML
 
 ---
 
-5. Ingresa al SSH de su MV y ejecute las siguintes instrucciones.
+5. Ingresa al SSH de su MV y ejecute las siguintes instrucciones para instalar Polymer.
 
 ![Bitnami SSH](https://storage.googleapis.com/panaceaapp/bitnamissh.png)
 
@@ -73,7 +73,7 @@ HTML
 $ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 ```
-### Para compilar e instalar extensiones nativas
+### Compilar e instalar extensiones nativas
 ```linux 
 $ sudo apt-get install -y build-essential
 ```
