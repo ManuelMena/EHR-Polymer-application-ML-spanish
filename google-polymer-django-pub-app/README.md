@@ -122,47 +122,62 @@ $ polymer serve
 
 ---
 ```
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir  && sudo chmod 777 equation-simple && cd equation-simple && polymer init 
-sudo chmod 777 equation-simple.html 
+$ cd && cd htdocs/src/polymer-pub-app && mkdir body-paper && sudo chmod 777 body-paper && body-paper && polymer init
+$ sudo chmod 777 body-paper.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir equation-simple && sudo chmod 777 equation-simple && cd equation-simple && polymer init
-sudo chmod 777 equation-simple.html
+$ cd && cd htdocs/src/polymer-pub-app && mkdir introduction-section && sudo chmod 777 introduction-section && introduction-section && polymer init
+$ sudo chmod 777 introduction-section.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir equation-displaymath && sudo chmod 777 equation-displaymath && cd equation-displaymath && polymer init
-sudo chmod 777 equation-displaymath.html
+$ cd && cd htdocs/src/polymer-pub-app && mkdir abstract-counter-skip && sudo chmod 777 abstract-counter-skip && cd abstract-counter-skip && polymer init
+$ sudo chmod 777 abstract-counter-skip.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir display-ecuations && sudo chmod 777 display-ecuations && cd display-ecuations && polymer init
-sudo chmod 777 display-ecuations.html
+$ cd && cd htdocs/src/polymer-pub-app && mkdir div-copyright && sudo chmod 777 div-copyright && cd div-copyright && polymer init
+$ sudo chmod 777 div-copyright.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir citations-set && sudo chmod 777 citations-set && cd citations-set && polymer init
-sudo chmod 777 citations-set.html
+$ cd && cd htdocs/src/polymer-pub-app && mkdir header-counter-skip && sudo chmod 777 header-counter-skip && cd header-counter-skip && polymer init
+$ sudo chmod 777 header-counter-skip.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir table-set && sudo chmod 777 table-set && cd table-set && polymer init
-sudo chmod 777 table-set.html
+$ cd && cd htdocs/src/polymer-pub-app && mkdir math-menssage && sudo chmod 777 math-menssage && cd math-menssage && polymer init
+$ sudo chmod 777 math-menssage.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir figure-set && sudo chmod 777 figure-set && cd figure-set && polymer init
-sudo chmod 777 figure-set.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir equation-simple && sudo chmod 777 equation-simple && cd equation-simple && polymer init
+$ sudo chmod 777 equation-simple.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir theorem-like-constructs && sudo chmod 777 theorem-like-constructs && cd theorem-like-constructs && polymer init
-sudo chmod 777 theorem-like-constructs.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir equation-displaymath && sudo chmod 777 equation-displaymath && cd equation-displaymath && polymer init
+$ sudo chmod 777 equation-displaymath.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir caveat-expert && sudo chmod 777 caveat-expert && cd caveat-expert && polymer init
-sudo chmod 777 caveat-expert.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir display-ecuations && sudo chmod 777 display-ecuations && cd display-ecuations && polymer init
+$ sudo chmod 777 display-ecuations.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir conclusion-set && sudo chmod 777 conclusion-set && cd conclusion-set && polymer init
-sudo chmod 777 conclusion-set.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir citations-set && sudo chmod 777 citations-set && cd citations-set && polymer init
+$ sudo chmod 777 citations-set.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir acknowledgements-section && sudo chmod 777 acknowledgements-section && cd acknowledgements-section && polymer init
-sudo chmod 777 acknowledgements-section.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir table-set && sudo chmod 777 table-set && cd table-set && polymer init
+$ sudo chmod 777 table-set.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir additional-authors && sudo chmod 777 additional-authors && cd additional-authors && polymer init
-sudo chmod 777 additional-authors.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir figure-set && sudo chmod 777 figure-set && cd figure-set && polymer init
+$ sudo chmod 777 figure-set.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir references-set && sudo chmod 777 references-set && cd references-set && polymer init
-sudo chmod 777 references-set.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir theorem-like-constructs && sudo chmod 777 theorem-like-constructs && cd theorem-like-constructs && polymer init
+$ sudo chmod 777 theorem-like-constructs.html
 
-cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir appendix-set && sudo chmod 777 appendix-set && cd appendix-set && polymer init
-sudo chmod 777 appendix-set.html
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir caveat-expert && sudo chmod 777 caveat-expert && cd caveat-expert && polymer init
+$ sudo chmod 777 caveat-expert.html
+
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir conclusion-set && sudo chmod 777 conclusion-set && cd conclusion-set && polymer init
+$ sudo chmod 777 conclusion-set.html
+
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir acknowledgements-section && sudo chmod 777 acknowledgements-section && cd acknowledgements-section && polymer init
+$ sudo chmod 777 acknowledgements-section.html
+
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir additional-authors && sudo chmod 777 additional-authors && cd additional-authors && polymer init
+$ sudo chmod 777 additional-authors.html
+
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir references-set && sudo chmod 777 references-set && cd references-set && polymer init
+$ sudo chmod 777 references-set.html
+
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir appendix-set && sudo chmod 777 appendix-set && cd appendix-set && polymer init
+$ sudo chmod 777 appendix-set.html
 ```
 
 
