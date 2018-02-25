@@ -64,7 +64,7 @@ HTML
 
 ---
 
-5. Ingresa al SSH de su MV y ejecute las siguintes instrucciones para instalar Polymer.
+5. Ingresa al SSH de su MV y ejecute las siguientes instrucciones para instalar Polymer.
 
 ![Bitnami SSH](https://storage.googleapis.com/panaceaapp/bitnamissh.png)
 
