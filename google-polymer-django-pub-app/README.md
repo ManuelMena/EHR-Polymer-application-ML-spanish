@@ -77,7 +77,7 @@ $ sudo apt-get install -y nodejs
 ```linux 
 $ sudo apt-get install -y build-essential
 ```
-## Instalar global de npm 
+## Instalar globalmente npm 
 ```linnux
 $ mkdir ~/.npm-global
 $ npm config set prefix '~/.npm-global'
