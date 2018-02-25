@@ -1,0 +1,314 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="inline-equations/inline-equations.html">
+<link rel="import" href="display-ecuations/display-ecuations.html">
+<link rel="import" href="equation-displaymath/equation-displaymath.html">
+<link rel="import" href="equation-simple/equation-simple.html">
+<link rel="import" href="theorem-like-constructs/theorem-like-constructs.html">
+<link rel="import" href="citations-set/citations-set.html">
+<link rel="import" href="table-set/table-set.html">
+<link rel="import" href="figure-set/figure-set.html">
+<link rel="import" href="caveat-expert/caveat-expert.html">
+<link rel="import" href="conclusion-set/conclusion-set.html">
+<link rel="import" href="acknowledgements-section/acknowledgements-section.html">
+<link rel="import" href="additional-authors/additional-authors.html">
+<link rel="import" href="references-set/references-set.html">
+<link rel="import" href="appendix-set/appendix-set.html">
+<dom-module id="body-paper">
+  <template>
+    <link rel="stylesheet" href="pub.css">
+    <style>
+        :host {display: block;}
+        th {font-weight: normal;}
+        th, td {padding: 0;}
+        code a {color: inherit;text-decoration: none;}
+        .tex,
+        .latex {text-transform: uppercase;}
+        .tex > span,
+        .latex > span {line-height: 0; text-transform: uppercase;}
+        .latex > :first-child {margin-left: -0.36em; margin-right: -0.15em; vertical-align: 0.3em; font-size: 70%;}
+        .tex > :last-child,
+        .latex > :last-child {margin-left: -0.1667em; margin-right: -0.125em; vertical-align: -0.5ex;}
+        .table-comments {width: auto; margin: auto; float: column-top; column-span: all;}
+        .table-comments th,
+        .table-comments td {padding-left: 2pt; padding-right: 2pt;}
+        .table-comments th:nth-child(3),
+        .table-comments td:nth-child(3) {text-align: left;}
+        .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+        .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+        .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+        .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+        .MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+        #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+        #MathJax_About.MathJax_MousePost {outline: none}
+        .MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+        .MathJax_MenuItem {padding: 2px 2em; background: transparent}
+        .MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+        .MathJax_MenuActive .MathJax_MenuArrow {color: white}
+        .MathJax_MenuArrow.RTL {left: .5em; right: auto}
+        .MathJax_MenuCheck {position: absolute; left: .7em}
+        .MathJax_MenuCheck.RTL {right: .7em; left: auto}
+        .MathJax_MenuRadioCheck {position: absolute; left: 1em}
+        .MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+        .MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+        .MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+        .MathJax_MenuDisabled {color: GrayText}
+        .MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+        .MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+        .MathJax_ContextMenu:focus {outline: none}
+        .MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+        #MathJax_AboutClose {top: .2em; right: .2em}
+        .MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+        .MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+        .MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+        .MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+        .MathJax_MenuClose:hover span {background-color: #CCC!important}
+        .MathJax_MenuClose:hover:focus {outline: none}
+        .MathJax_Preview .MJXf-math {color: inherit!important}
+        .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+        .MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+        #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+        #MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+        #MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+        #MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+        .MathJax_Preview {color: #888}
+        #MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+        #MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+        .MathJax_Error {color: #CC0000; font-style: italic}
+        .MJXp-script {font-size: .8em}
+        .MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+        .MJXp-bold {font-weight: bold}
+        .MJXp-italic {font-style: italic}
+        .MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+        .MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+        .MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+        .MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+        .MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+        .MJXp-largeop {font-size: 150%}
+        .MJXp-largeop.MJXp-int {vertical-align: -.2em}
+        .MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap;border-collapse: collapse}
+        .MJXp-display {display: block; text-align: center; margin: 1em 0}
+        .MJXp-math span {display: inline-block}
+        .MJXp-box {display: block!important; text-align: center}
+        .MJXp-box:after {content: " "}
+        .MJXp-rule {display: block!important; margin-top: .1em}
+        .MJXp-char {display: block!important}
+        .MJXp-mo {margin: 0 .15em}
+        .MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+        .MJXp-denom {display: inline-table!important; width: 100%}
+        .MJXp-denom > * {display: table-row!important}
+        .MJXp-surd {vertical-align: top}
+        .MJXp-surd > * {display: block!important}
+        .MJXp-script-box > *  {display: table!important; height: 50%}
+        .MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+        .MJXp-script-box > *:last-child > * {vertical-align: bottom}
+        .MJXp-script-box > * > * > * {display: block!important}
+        .MJXp-mphantom {visibility: hidden}
+        .MJXp-munderover {display: inline-table!important}
+        .MJXp-over {display: inline-block!important; text-align: center}
+        .MJXp-over > * {display: block!important}
+        .MJXp-munderover > * {display: table-row!important}
+        .MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+        .MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+        .MJXp-mtr {display: table-row!important}
+        .MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+        .MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+        .MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+        .MJXp-mlabeledtr {display: table-row!important}
+        .MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+        .MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+        .MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+        .MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+        .MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+        .MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+        .MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+        .MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+        .MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+        .MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+        .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+        .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+        .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+        .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+        .mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal;font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+        .MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+        .mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+        .mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+        .mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+        .mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+        .mjx-numerator {display: block; text-align: center}
+        .mjx-denominator {display: block; text-align: center}
+        .MJXc-stacked {height: 0; position: relative}
+        .MJXc-stacked > * {position: absolute}
+        .MJXc-bevelled > * {display: inline-block}
+        .mjx-stack {display: inline-block}
+        .mjx-op {display: block}
+        .mjx-under {display: table-cell}
+        .mjx-over {display: block}
+        .mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+        .mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+        .mjx-stack > .mjx-sup {display: block}
+        .mjx-stack > .mjx-sub {display: block}
+        .mjx-prestack > .mjx-presup {display: block}
+        .mjx-prestack > .mjx-presub {display: block}
+        .mjx-delim-h > .mjx-char {display: inline-block}
+        .mjx-surd {vertical-align: top}
+        .mjx-mphantom * {visibility: hidden}
+        .mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+        .mjx-annotation-xml {line-height: normal}
+        .mjx-menclose > svg {fill: none; stroke: currentColor}
+        .mjx-mtr {display: table-row}
+        .mjx-mlabeledtr {display: table-row}
+        .mjx-mtd {display: table-cell; text-align: center}
+        .mjx-label {display: table-row}
+        .mjx-box {display: inline-block}
+        .mjx-block {display: block}
+        .mjx-span {display: inline}
+        .mjx-char {display: block; white-space: pre}
+        .mjx-itable {display: inline-table; width: auto}
+        .mjx-row {display: table-row}
+        .mjx-cell {display: table-cell}
+        .mjx-table {display: table; width: 100%}
+        .mjx-line {display: block; height: 0}
+        .mjx-strut {width: 0; padding-top: 1em}
+        .mjx-vsize {width: 0}
+        .MJXc-space1 {margin-left: .167em}
+        .MJXc-space2 {margin-left: .222em}
+        .MJXc-space3 {margin-left: .278em}
+        .mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+        .mjx-chartest .mjx-char {display: inline}
+        .mjx-chartest .mjx-box {padding-top: 1000px}
+        .MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+        .MJXc-processed {display: none}
+        .mjx-test {display: block; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+        .mjx-ex-box-test {position: absolute; width: 1px; height: 60ex}
+        .mjx-line-box-test {display: table!important}
+        .mjx-line-box-test span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+        #MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+        .mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+        .MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+        .MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+        .MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+        .MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+        .MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+        .MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+        .MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+        .MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+        .MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+        .MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+        .MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+        .MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+        .MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+        .MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+        .MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+        .MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+        .MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+        .MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+        .MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+        .MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+        .MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+        .MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+        .MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+        @font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+        @font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+        @font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+        @font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+        @font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+        @font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+        @font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+        @font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+        @font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+        @font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+        @font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+        @font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+        @font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+        @font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+        @font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+        @font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+        @font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+        @font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+        @font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+        @font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+        @font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+        @font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+        @font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+        @font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+        @font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+        @font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+        @font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+        @font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+        @font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+    </style>
+    <!-- Body of the Paper-->
+    <h2><a id="Desarrollo_de_registros_mdicos_escritura_comunicacin_y_semiosis_0"></a>Desarrollo de registros médicos: escritura, comunicación y semiosis.</h2>
+    <p>En la medicina desde el desarrollo de la escritura, se realiza registro de las observaciones y se crea el método de estudio de los padecimientos, basándose en el acervo y análisis de la información documentada. <sup>1,2</sup> Imhotep (2686-2637 a.c.) el más grande erudito del antiguo Egipto (médico, matemático, ingeniero y dios), Se considera autor del papiro de Edwin Smith, <sup>2</sup> catalogado como el documento médico más antiguo, hasta ahora conservado en la academia de medicina de Nueva York. En él, se registran 48 especímenes de procedimientos clínicos y quirúrgicos, fundamentados en la observación, recolección y clasificación de los hechos. <sup>3</sup> Hipócrates (460-370 a.c.), padre de la medicina moderna, fue autor de más de 70 documentos, en ellos, a partir de la observación detallada,  describe de una manera científica muchas enfermedades y su tratamiento. <sup>4</sup><br>
+    Con la escritura y sus diversos significados interpretativos, se hizo cada vez más compleja la comunicación. Los escribas sumerios identificaron que muchas palabras tenían diferentes significados pero iguales representaciones verbales, y desarrollaron una escritura basada en una mezcla de conjuntos de figuras que representaban cosas, y conjuntos de figuras que representaban sonidos; <sup>1</sup> símil de las formas que se definen como lengua y habla en la dialéctica de las estructuras lingüísticas. Estos se representan en el concepto de código (elemento explícito o significante) y mensaje elemento implícito o significado) y su desarrollo o significación.  Aplicando el proceso de semiosis descrito por Peirce, el signo o la palabra escrita es el representamen (interpretación subjetiva), el objeto es lo que representa el signo (interpretación objetiva) y el interpretante es el resultado o equivalente mental del desarrollo del signo. Si la estructura lingüística de un documento, se estudia en su semiosis, obtendremos un lenguaje semiológico, que expresa significado y denominación de cada signo o palabra con sus segmentos y relaciones gramaticales que le confieren sentido.<br>
+    Los registros médicos son documentos científico-legales, que comunican y determinan diferentes expresiones para quien los elabora y los interpreta; por tanto la efectividad de su misión está directamente relacionada con la calidad de su elaboración, y más aún, de su interpretación y análisis. La calidad, está determinada, por la aplicación rigurosa de la semiología médica, que se ocupa del estudio de los signos y síntomas, de las enfermedades y sus consecuencias. Y utiliza métodos y procedimientos de  semiotecnia para obtenerlos,  con el fin de elaborar un diagnóstico que deduce pronóstico e indicación terapéutica; para ser completos, los registros médicos que resultan de la exploración semiológica deben seguir un orden lógico, y correcto uso de mecanismos para obtener la información. <sup>6</sup> en esta dinámica la atención médica opera en un proceso de comunicación estructurada entre el paciente, el médico y sus recursos; convirtiendo la empresa médica en una exploración y descripción detallada del  cuadro morboso. Pascal decía: “la mayor parte de los errores de los médicos provienen no de malos raciocinios basados en hechos bien estudiados, sino de raciocinios bien establecidos basados en hechos mal observados”. <sup>6</sup><br>
+    Paralelo al desarrollo de la escritura, se requirieron las superficies e instrumentos para conservar y difundir la información, que evolucionaría desde tablillas de arcilla, roca o madera talladas, papiro o papel con la utilización de la tinta, y los medios impresos y electrónicos con el  proceso de industrialización  y tecnificación. <sup>1</sup> Con el advenimiento de los medios electrónicos, dice David Bolter: se  genera una especie de transparencia semiótica, donde el computador es un mundo autónomo en el que se da el proceso entero de semiosis en el espacio de la escritura electrónica de la máquina. <sup>7</sup> Esto en la teoría de Peirce representa como interpretante a la computadora igual que el cerebro humano. Porque en la mayoría de los sistemas semiológicos, la lengua, es elaborada, no por “la masa hablante” sino por un grupo de decisión. Se puede decir que en la mayoría de las lenguas semiológicas el signo es “arbitrario”, puesto que es fundado de manera artificial mediante una decisión unilateral. Se trata de lenguajes fabricados o logotecnias. Donde los usuarios que se atienen a este lenguaje, pueden extraer de ellos los mensajes (las hablas), pero no participan en su elaboración. <sup>5</sup><br>
+    La logotecnia se aplica al contexto de la práctica clínica, en la escena del médico (usuario) registrando su acto (mensaje) a través de la exploración propedéutica (elaboración) del cuadro morboso de su paciente, donde la calidad del mensaje no depende del usuario, como depende de su elaboración, que esta determinantemente supeditada a la calidad de la logotecnia, y de quien encarna su semiosis, el cerebro humano y/o la computadora. Indefectiblemente, en este proceso de comunicación humana, de relación médico-paciente, Eliminar uno de sus actores, no es posible, aunque la semiosis en la parte operativa se asista de sistemas artificiales.</p>
+    <h2><a id="Desarrollo_de_los_registros_mdicos_relato_signo_y_significado_7"></a>Desarrollo de los registros médicos: relato, signo y significado.</h2>
+    <p>Con el desarrollo de la escritura, la superficie y los instrumentos, se desarrolló la técnica, en forma general, como el discurso: metafórico (descripción), metonimia (relato), entimemático (intelectual). El relato representa una frase, como suma de frases complejas, o sistemas de signos, símbolos, reglas, etc., que se usan para representar expresiones que están ordenadas y relacionadas en niveles fonéticos, fonológicos, gramaticales y contextuales. <sup>5,8</sup>  El relato no es en suma, más, que la “lengua” y está “fusión” de la lógica y la temporalidad, y es llevada a cabo por la armazón de las funciones consecutivas y consecuentes. Los registros médicos son de forma definitiva un relato, porque, asignan valores de representatividad cronológica y causal en un hilo narrativo, con funciones o unidades (todo segmento de la historia que se presenta como una correlación), acciones (actantes), narración (discurso). El relato debe ser, consecutivo y consecuente, donde el resorte de la actividad narrativa es la confusión misma entre la secuencia y la consecuencia, porque lo que viene es leído después en el relato como causado por; representado en el registro médico, con la exploración de un sistema de signos (objetivos) y síntomas (subjetivos) dentro del contexto de un hilo narrativo, consecutivo y consecuente con la aplicación de la semiotecnia médica.<sup>6,8</sup><br>
+    Toda técnica impulsa a un tecnócrata o un científico, en el papel del médico, como quien media entre el signo y el síntoma, la historia de la enfermedad, su registro y su tratamiento. Es el usuario de la técnica semiótica o lenguaje logotecnico de signos y síntomas, narrados como la historia de la enfermedad del paciente en los registros propedéuticos, resultantes de la abstracción exploratoria del cuadro, edificando el estudio médico del signo clínico (semiología) de la enfermedad (lengua) y el registro (habla)  de su cuadro (significante) patológico (significado) con los signos y síntomas (segmentos) organizados en síndromes (sistemas), para abordaje diagnóstico (denotación) y terapéutico (connotación) en el acto médico (logotecnia). Finalmente realiza investigación semiológica, con el proyecto mismo de actividad estructuralista, construye  un simulacro de los objetos observados, con el objetivo de reconstruir el funcionamiento de los sistemas de significación, en este caso representado por la salud.<br>
+    La ciencia y técnica médica a lo largo de milenios de estudio del signo clínico y su significado, produce cantidades infinitas de información,  recopiladas en documentos y bibliotecas, como base para la educación y ejercicio profesional. La implementación y desarrollo de tecnologías informáticas y dispositivos de comunicación móviles, ha permitido mayor acceso a esta información, que tiende a ser más depurada, efectiva y eficiente, con el  advenimiento de la medicina basada en la evidencia y el refinamiento de la cibernética, la internet y  la semántica web. El médico intenta contener esta información y pretende atender o aliviar el sufrimiento de su paciente con la aplicación metódica del acto clínico como una empresa médica, que debido al desarrollo e industrialización, logra grandes volúmenes de producción sumado a el carácter burocrático de la  organización jerárquica, en el modelo administrativo y operativo de las empresas capitalistas, <sup>9</sup> provoca la pérdida parcial del carácter de tecnócratico del médico en los actuales sistemas de salud.<br>
+    La semiología médica moderna está fuertemente estructurada y su misión está determinada por aplicación metódica del acto clínico, aunque la estructura y calidad del producto informático dependen de la utilización y desarrollo de recursos o programas, cuya piedra angular  la representa el registro médico electrónico o  EHR por sus siglas en inglés, y las plataformas en las que se ejecuta, como subproducto de los servicios de atención, con la capacidad de asistir en salud pública, cuidado longitudinal del paciente, e investigación clínica. <sup>10</sup></p>
+    <h2><a id="Desarrollo_de_registros_mdicos_digitalizacin_ejecucin_y_aporte_13"></a>Desarrollo de registros médicos: digitalización, ejecución y aporte.</h2>
+    <h2><a id="Desarrollo_de_registros_mdicos_lenguaje_web_creacin_y_aplicacin_15"></a>Desarrollo de registros médicos: lenguaje web, creación y aplicación.</h2>
+    <p>En el seno de desarrollo del World Wide Web Consortiun (W3C), con el fin de dar capacidad “semiótica” en la creación de páginas web, desde su creación por Tim Berners-Lee y Robert Cailliau, se ideó un sistema de escritura,  el  lenguaje de marcas extensible (XML), su estructura o XML Schema, su sistema de relaciones o marco de descripción de recursos (RDF), y su sistema de “connotación y denotación” o RDF Schema;  actualmente recopilado en el lenguaje de ontología web o OWL, como el desarrollo final de la web semántica, una visión del futuro de la Web donde la información da significado explícito, permitiendo que las máquinas puedan procesar automáticamente e integrar la información disponible. La Web semántica se basará en la capacidad de XML para definir esquemas de etiquetas a medida y en la aproximación flexible de RDF para representar datos. <sup>11</sup><br>
+    El Lenguaje de Ontologías Web (OWL) está diseñado para ser usado en aplicaciones que necesitan procesar el contenido de la información  en lugar de únicamente representar información para los humanos. OWL añade más vocabulario para describir propiedades y clases, fue diseñado por el W3C, para desarrolladores y usuarios de la web, y opera en tres niveles de expresividad, (OWL Lite, OWL DL, OWL Full) uno mayor que el otro según las necesidades. <sup>11</sup><br>
+    En el contexto de los requerimientos actuales en el desarrollo y uso de los registros médicos, es fundamental la aplicación de un sistema de lenguaje ontológico, que administre sus  parámetros, expresiones y resultados; como en la visión futura de la creación de páginas web. Donde el médico realiza la exploración propedéutica detallada, a manera de un discurso puramente descriptivo del cuadro clínico del paciente, usando un vocabulario estandarizado o logoteca de términos, y el relato  finalmente se sintetiza dentro de la web en un proceso de semiosis artificial que genera documentos y metadatos estructurados con cada historia clínica.</p>
+    <conclusion-set></conclusion-set>
+    <references-set></references-set>
+    <!-- Body Paper Components
+        <inline-equations></inline-equations>
+        <display-ecuations></display-ecuations>
+        <equation-displaymath></equation-displaymath>
+        <equation-simple></equation-simple>  
+        <citations-set></citations-set>
+        <table-set></table-set>
+        <figure-set></figure-set>
+        <theorem-like-constructs></theorem-like-constructs>
+        <caveat-expert></caveat-expert>
+        <acknowledgements-section></acknowledgements-section>  
+        <additional-authors></additional-authors>
+        <appendix-set></appendix-set> -->
+  </template>
+
+  <script>
+    /**
+     * `body-paper`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class BodyPaper extends Polymer.Element {
+      static get is() { return 'body-paper'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'body-paper'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(BodyPaper.is, BodyPaper);
+  </script>
+</dom-module>
