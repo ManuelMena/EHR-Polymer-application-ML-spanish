@@ -14,14 +14,10 @@ Markdown
 ### Encabezado 3
 *Enfasis*
 ```
-
-Resultado
----
 # Encabezado 1
 ## Encabezado 2
 ### Encabezado 3
 *Enfasis*
-
 LaTeX
 ---
 ```txt
