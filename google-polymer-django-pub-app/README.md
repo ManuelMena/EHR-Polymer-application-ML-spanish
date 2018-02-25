@@ -45,8 +45,13 @@ HTML
 
 ---
 
-2. Los editores de texto para código son esenciales para este metodo y recomendamos usar [Sublime Text](https://www.sublimetext.com/).
+2. Los editores de texto para código son esenciales en este metodo y recomendamos usar [Sublime Text](https://www.sublimetext.com/).
+
+![Sublime Text](https://storage.googleapis.com/panaceaapp/sublimepolymer.png)
+
 3. Ingresa GitHub Registra un usuario e ingresa a: [github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app](https://github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app) Clona o descarga este repositorio en tu PC.
+
+
 4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues, ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual con el stack [DJango](https://bitnami.com/stack/django).
 
 ![Bitnami Google Launchpad](https://storage.googleapis.com/panaceaapp/bitnamigooglelaunchpad.png)
