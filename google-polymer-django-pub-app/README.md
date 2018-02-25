@@ -118,7 +118,7 @@ $ ❯ polymer-2-application - A simple Polymer 2.0 application
 nombre: polymer-pub-app
 $ polymer serve
 ```
-##### cierra SSH y ejecute cada línea de comando para cerar la estructura del proyecto.
+##### cierre el SSH, ingrese de nuevo y ejecute cada línea de comando a continuación para crear la estructura del proyecto.
 
 ---
 ```
