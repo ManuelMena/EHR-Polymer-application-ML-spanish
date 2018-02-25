@@ -122,7 +122,8 @@ $ polymer serve
 
 ---
 ```
-$ cd && cd htdocs/src/
+$ cd && cd htdocs/src/polymer-pub-app && sudo chmod 777 polymer-pub-app.html
+
 $ cd && cd htdocs/src/polymer-pub-app && mkdir body-paper && sudo chmod 777 body-paper && cd body-paper && polymer init
 $ sudo chmod 777 body-paper.html
 
@@ -138,11 +139,14 @@ $ sudo chmod 777 div-copyright.html
 $ cd && cd htdocs/src/polymer-pub-app && mkdir header-counter-skip && sudo chmod 777 header-counter-skip && cd header-counter-skip && polymer init
 $ sudo chmod 777 header-counter-skip.html
 
-$ cd && cd htdocs/src/polymer-pub-app && mkdir math-menssage && sudo chmod 777 math-menssage && cd math-menssage && polymer init
-$ sudo chmod 777 math-menssage.html
+$ cd && cd htdocs/src/polymer-pub-app && mkdir mathjax-message && sudo chmod 777 mathjax-message && cd mathjax-message && polymer init
+$ sudo chmod 777 mathjax-message.html
 
 $ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir equation-simple && sudo chmod 777 equation-simple && cd equation-simple && polymer init
 $ sudo chmod 777 equation-simple.html
+
+$ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir inline-equations && sudo chmod 777 inline-equations && cd inline-equations && polymer init
+$ sudo chmod 777 inline-equations.html
 
 $ cd && cd htdocs/src/polymer-pub-app/body-paper && mkdir equation-displaymath && sudo chmod 777 equation-displaymath && cd equation-displaymath && polymer init
 $ sudo chmod 777 equation-displaymath.html
