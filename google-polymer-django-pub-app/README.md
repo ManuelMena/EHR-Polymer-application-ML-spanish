@@ -3,7 +3,7 @@
 Hola, Este métedo, que hemos llamado *Pitágoras*, enseña a crear una publicación en formato académico para distribución web, con Google Cloud Platform en pocos minutos.
 ------
 ----------
-1. *Pitágoras* utiliza lenguajes de marcado como [Markdown](https://es.wikipedia.org/wiki/Markdown) ```.md```, [LaTeX](https://es.wikipedia.org/wiki/LaTeX) ```.txt``` y [HTML](https://es.wikipedia.org/wiki/HTML) ```.html```; ingresa a cada vinculo y conoce mas de su estructura.
+1. *Pitágoras* utiliza lenguajes de marcado como [Markdown](https://es.wikipedia.org/wiki/Markdown) ```.md```, [LaTeX](https://es.wikipedia.org/wiki/LaTeX) ```.txt``` y [HTML](https://es.wikipedia.org/wiki/HTML) ```.html```; ingrese a cada vinculo y conoce mas de su estructura.
 
 Markdown
 ---
