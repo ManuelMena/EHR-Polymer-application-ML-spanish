@@ -52,19 +52,19 @@ HTML
 
 ---
 
-3. Ingresa [GitHub](https://github.com) Registra un usuario e ingresa a: [github.com/ManuelMena/polymer-pub-app](https://github.com/ManuelMena/polymer-pub-app) Clona o descarga este repositorio en tu PC.
+3. Ingrese a [GitHub](https://github.com) Registra un usuario e ingresa a: [github.com/ManuelMena/polymer-pub-app](https://github.com/ManuelMena/polymer-pub-app) Clona o descarga este repositorio en tu PC.
 
 ![GitHub](https://storage.googleapis.com/panaceaapp/githubpub.png)
 
 ---
 
-4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lanza una máquina virtual (MV) con el stack [DJango](https://bitnami.com/stack/django).
+4. Ingrese a [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual (MV) con el stack [DJango](https://bitnami.com/stack/django).
 
 ![Bitnami Google Launchpad](https://storage.googleapis.com/panaceaapp/bitnamigooglelaunchpad.png)
 
 ---
 
-5. Ingresa al SSH de su MV y ejecute las siguientes instrucciones para instalar Polymer.
+5. Ingrese al SSH de su MV y ejecute las siguientes instrucciones para instalar Polymer.
 
 ![Bitnami SSH](https://storage.googleapis.com/panaceaapp/bitnamissh.png)
 
