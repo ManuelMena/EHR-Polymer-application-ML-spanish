@@ -58,13 +58,15 @@ HTML
 
 ---
 
-4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues, ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual (MV) con el stack [DJango](https://bitnami.com/stack/django).
+4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lanza una máquina virtual (MV) con el stack [DJango](https://bitnami.com/stack/django).
 
 ![Bitnami Google Launchpad](https://storage.googleapis.com/panaceaapp/bitnamigooglelaunchpad.png)
 
 ---
 
-5. Ingrese al SSH de su MV y ejecute las siguintes instrucciones.
+5. Ingresa al SSH de su MV y ejecute las siguintes instrucciones.
+
+![Bitnami SSH](https://storage.googleapis.com/panaceaapp/bitnamissh.png)
 
 ## Intalar nodejs
 ```linux
@@ -118,10 +120,3 @@ $ polymer serve
 ##### cerrar SSH.
 
 ---
-
-
-
-
-
-
-Primero debes crear una 
