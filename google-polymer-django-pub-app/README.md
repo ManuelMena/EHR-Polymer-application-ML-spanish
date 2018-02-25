@@ -122,10 +122,11 @@ $ polymer serve
 
 ---
 ```
-$ cd && cd htdocs/src/polymer-pub-app && mkdir body-paper && sudo chmod 777 body-paper && body-paper && polymer init
+$ cd && cd htdocs/src/
+$ cd && cd htdocs/src/polymer-pub-app && mkdir body-paper && sudo chmod 777 body-paper && cd body-paper && polymer init
 $ sudo chmod 777 body-paper.html
 
-$ cd && cd htdocs/src/polymer-pub-app && mkdir introduction-section && sudo chmod 777 introduction-section && introduction-section && polymer init
+$ cd && cd htdocs/src/polymer-pub-app && mkdir introduction-section && sudo chmod 777 introduction-section && cd introduction-section && polymer init
 $ sudo chmod 777 introduction-section.html
 
 $ cd && cd htdocs/src/polymer-pub-app && mkdir abstract-counter-skip && sudo chmod 777 abstract-counter-skip && cd abstract-counter-skip && polymer init
