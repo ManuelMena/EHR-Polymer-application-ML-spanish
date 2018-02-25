@@ -115,7 +115,7 @@ $ cd htdocs && sudo chmod 777 index.html
 ```linux
 $ cd && cd htdocs && polymer init
 $ ❯ polymer-2-application - A simple Polymer 2.0 application
-nombre: polymer-pub-app
+nombre: polymer-pub
 $ polymer serve
 ```
 ##### cierre el SSH, ingrese de nuevo y ejecute cada línea de comando a continuación para crear la estructura del proyecto.
