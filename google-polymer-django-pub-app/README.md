@@ -51,15 +51,84 @@ HTML
 
 ![Sublime Text](https://storage.googleapis.com/panaceaapp/sublimepolymer.png)
 
+---
+
 3. Ingresa GitHub Registra un usuario e ingresa a: [github.com/ManuelMena/polymer-pub-app](https://github.com/ManuelMena/polymer-pub-app) Clona o descarga este repositorio en tu PC.
 
 ![GitHub](https://storage.googleapis.com/panaceaapp/githubpub.png)
 
-4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues, ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual con el stack [DJango](https://bitnami.com/stack/django).
+---
+
+4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues, ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual (MV) con el stack [DJango](https://bitnami.com/stack/django).
 
 ![Bitnami Google Launchpad](https://storage.googleapis.com/panaceaapp/bitnamigooglelaunchpad.png)
 
-5. Ingrese 
+---
+
+5. Ingrese al SSH de su MV y ejecute las siguintes instrucciones.
+
+### [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalar-polymer-con-django-en-google-cloud-1)
+### [Crear una base de datos con Snomed-CT® en Google Cloud SQL](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-una-base-de-datos-con-snomed-ct-en-google-cloud-sql-1)
+### [Crear un servidor de Snomed-CT® con Google Cloud y Tomcat®](https://github.com/ManuelMena/Panacea/blob/master/README.md#crear-un-servidor-de-snomed-ct-con-google-cloud-y-tomcat-1)
+### [Instalar Google Compute EngineR con Rstudio](https://github.com/ManuelMena/Panacea/blob/master/README.md#instalar-google-compute-enginer-con-rstudio-1)
+------------
+# [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/tree/master/DJangoPolymer)
+------------
+## Crear una instancia de Linux con el stack django en bitnami con Google Cloud
+https://bitnami.com/stack/django
+ingresar a la terminal y abrir un SSH
+## Intalar nodejs
+```linux
+$ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+```
+### Para compilar e instalar extensiones nativas
+```linux 
+$ sudo apt-get install -y build-essential
+```
+## Instalar global de npm 
+```linnux
+$ mkdir ~/.npm-global
+$ npm config set prefix '~/.npm-global'
+$ sudo nano ~/.profile
+```
+### Pegar
+```linux
+$ export PATH=~/.npm-global/bin:$PATH
+```
+### Guardar y volver a actualizar con el comando
+```linux
+$ source ~/.profile
+```
+### probar
+```linux
+$ npm install -g jshint
+```
+## Instalar y comprobar requisitos
+```linux
+$ node --version
+$ npm install npm@latest -g
+$ git --version
+$ npm install -g bower
+```
+## Instalar polymer CLI
+```linux
+$ npm install -g polymer-cli
+```
+## Actualizar permisos
+```linux
+$ sudo chmod 777 htdocs
+$ cd htdocs && sudo chmod 777 index.html
+```
+## Instalar proyecto
+```linux
+$ cd && cd htdocs && polymer init
+$ ❯ polymer-2-application - A simple Polymer 2.0 application
+$ polymer serve
+```
+##### cerrar SSH.
+
+---
 
 
 
