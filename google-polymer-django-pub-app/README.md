@@ -30,6 +30,18 @@ m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
 ```
 ![LaTeX e=mc2](https://storage.googleapis.com/panaceaapp/emclatex.png)
 
+HTML
+---
+```md
+<h1>Encabezado 1</h1>
+<h2>Encabezado 2</h2>
+<h3>Encabezado 3</h3>
+*Enfasis*
+```
+# Encabezado 1
+## Encabezado 2
+### Encabezado 3
+*Enfasis*
 
 2. Los editores de texto para código son esenciales para este meteodo y recomendamos usar [Sublime Text](https://www.sublimetext.com/).
 3. Ingresa GitHub Registra un usuario e ingresa a: [github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app](https://github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app) Clona o descarga este repositorio en tu PC.
