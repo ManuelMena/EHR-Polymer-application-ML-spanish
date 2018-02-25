@@ -51,9 +51,9 @@ HTML
 
 ![Sublime Text](https://storage.googleapis.com/panaceaapp/sublimepolymer.png)
 
-3. Ingresa GitHub Registra un usuario e ingresa a: [github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app](https://github.com/ManuelMena/Panacea/tree/master/google-polymer-django-pub-app) Clona o descarga este repositorio en tu PC.
+3. Ingresa GitHub Registra un usuario e ingresa a: [github.com/ManuelMena/polymer-pub-app](https://github.com/ManuelMena/polymer-pub-app) Clona o descarga este repositorio en tu PC.
 
-![GitHub](https://storage.googleapis.com/panaceaapp/github.png)
+![GitHub](https://storage.googleapis.com/panaceaapp/githubpub.png)
 
 4. Ingresa [Google Cloud Platform](https://cloud.google.com/), inicie una prueba gratis, despues, ingrese a la consola de Google en [Bitnami](https://bitnami.com/) y lance una máquina virtual con el stack [DJango](https://bitnami.com/stack/django).
 
