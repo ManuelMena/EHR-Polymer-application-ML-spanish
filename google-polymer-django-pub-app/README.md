@@ -1,4 +1,4 @@
-# Crear una publicación académica web con Google Polymer
+# Crear una publicación web académica con Polymer en Google Cloud
 
 Hola, Este métedo, que hemos llamado *Pitágoras*, enseña a crear una publicación en formato académico para distribución web, con Google Cloud Platform en pocos minutos.
 ------
