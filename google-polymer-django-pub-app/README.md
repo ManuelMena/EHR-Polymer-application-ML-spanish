@@ -66,8 +66,6 @@ HTML
 
 5. Ingrese al SSH de su MV y ejecute las siguintes instrucciones.
 
-# [Instalar Polymer con Django en Google Cloud](https://github.com/ManuelMena/Panacea/tree/master/DJangoPolymer)
-------------
 ## Intalar nodejs
 ```linux
 $ curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
