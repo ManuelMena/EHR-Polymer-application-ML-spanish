@@ -52,7 +52,7 @@ HTML
 
 ---
 
-3. Ingrese a [GitHub](https://github.com) Registra un usuario e ingresa a: [github.com/ManuelMena/polymer-pub-app](https://github.com/ManuelMena/polymer-pub-app) Clona o descarga este repositorio en tu PC.
+3. Ingrese a [GitHub](https://github.com) Registre un usuario e ingreses a: [github.com/ManuelMena/polymer-pub-app](https://github.com/ManuelMena/polymer-pub-app) Clona o descarga este repositorio en tu PC.
 
 ![GitHub](https://storage.googleapis.com/panaceaapp/githubpub.png)
 
