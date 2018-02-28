@@ -9,15 +9,12 @@ https://cloud.google.com/sql/docs/mysql/create-manage-databases
 https://dev.mysql.com/downloads/workbench/
 ## Conocer tu IP publica para autorizar red en Cloud SQL (en cada conexión)
 ```cdm
-shell> ftp
-shell> open ftp.opera.com
-* usuario
-shell> anonymous
-shell> 
-* enter
-shell> literal stat
-shell> close
-shell> exit
+$ ftp
+$ open ftp.opera.com
+$ anonymous
+$ literal stat
+$ close
+$ exit
 ```
 ## Crear Una conexión de Cloud SQL con MySQL Workbench
 https://cloud.google.com/sql/docs/mysql/admin-tools
@@ -53,15 +50,22 @@ populate_oracle_db.sh
 5. Edite el su entorno en el archivo de Windows "populate_mysql_db.bat" y en Linux / Unix / MacOS "populate_oracle_db.sh" 
 
 ```mysql
-mysql> set MYSQL_HOME=[Nombre de conexión con la instancia Cloud SQL]
-mysql> set user=[Cuentas de usuario de MySQL]
-mysql> set password=[Contraseña de usuario de MySQL]
-mysql> set db_name=[snomed?]
+set MYSQL_HOME=[Nombre de conexión con la instancia Cloud SQL]
+set user=[Cuentas de usuario de MySQL]
+set password=[Contraseña de usuario de MySQL]
+set db_name=[snomed?]
 ```
   
 6. Cambie las configuraciones en ```mysql_tables.sql``` del script para su entorno en ```LOAD DATA LOCAL INFILE```
 
 7. Ingrese a Workbench y ejecute una conexión con Cloud SQL en su instancia e importe los script
 
-## License & Copyright
-© Manuel Mena. Tetraktys | Decisiones Acertadas.
+8. Termine de cargar los datos y pruebe con un query
+```mysql
+use snomed;
+show tables;
+select * from concept limit 1000;
+select * from conceptpreferredname limit 1000;
+select * from conceptwithnames limit 1000;
+select * from relationshipwithnames limit 1000;
+```
