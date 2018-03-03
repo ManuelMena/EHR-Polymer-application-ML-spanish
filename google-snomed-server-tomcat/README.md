@@ -6,7 +6,7 @@ https://console.cloud.google.com/launcher/details/click-to-deploy-images/tomcat
 ## Instalar requerimientos en el SSH
 ### Instalar maven
 ```debian
-shell> sudo apt-get install maven
+$ sudo apt-get install maven
 ```
 ### Instalar Servidor de MySQL 5.6
 ```linux
