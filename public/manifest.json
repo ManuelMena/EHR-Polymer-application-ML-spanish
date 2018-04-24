@@ -1,0 +1,7 @@
+{
+  "name": "panacea",
+  "short_name": "panacea",
+  "description": "hce",
+  "start_url": "/",
+  "display": "standalone"
+}
