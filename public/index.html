@@ -11,10 +11,33 @@
     <link rel="manifest" href="/manifest.json">
 
     <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="bower_components/web-animations-js/web-animations.min.js"></script>
+    <link rel="import" href="bower_components/platinum-sw/platinum-sw-elements.html">
+    <link rel="import" href="/bower_components/polymerfire/firebase-app.html">
 
     <link rel="import" href="/src/panacea-app/panacea-app.html">
   </head>
   <body>
+    <platinum-sw-register
+        auto-register
+        skip-waiting
+        clients-claim
+        reload-on-install
+        href="sw-import.js">
+      <platinum-sw-cache
+          default-cache-strategy="networkFirst">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+    <firebase-app
+        name="panacea"
+        api-key="AIzaSyBZgcpNJvhA38WF3WMqYkWAtnj_z4gimpU"
+        auth-domain="panacea-202116.firebaseapp.com"
+        database-url="https://panacea-202116.firebaseio.com"
+        projectId= "panacea-202116",
+        storageBucket= "panacea-202116.appspot.com",
+        messagingSenderId= "895239331196">
+    </firebase-app>
     <panacea-app></panacea-app>
   </body>
 </html>

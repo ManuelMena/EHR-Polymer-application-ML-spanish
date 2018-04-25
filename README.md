@@ -1,6 +1,12 @@
 # \<panacea\>
 
-hce
+## Inslalar elemnetos con bower
+
+```node
+$ bower install polymerfire
+$ bower install PolymerElements/platinum-sw --save
+$ bower install web-animations-js
+```
 
 ## Install the Polymer-CLI
 
