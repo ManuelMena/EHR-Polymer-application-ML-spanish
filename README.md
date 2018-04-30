@@ -1,39 +1,11 @@
 # \<panacea\>
 
-## Inslalar elemnetos con bower
+PANACEA es una aplicación en Polymer para la normalización y el análisis de los archivos del entorno clínico. Comienza con un módulo de historia clínica para consulta externa en formato SOAP (Subjetivo, Objetivo, Análisis y Plan). Tiene la función de crear historias cada vez mejores en una base de datos en tiempo real con Firebase.
+
+## Instaliciones con Bower
 
 ```node
 $ bower install polymerfire
 $ bower install PolymerElements/platinum-sw --save
 $ bower install web-animations-js
 ```
-
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
-```
-$ polymer serve
-```
-
-## Building Your Application
-
-```
-$ polymer build
-```
-
-This will create builds of your application in the `build/` directory, optimized to be served in production. You can then serve the built versions by giving `polymer serve` a folder to serve from:
-
-```
-$ polymer serve build/default
-```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.

@@ -1,0 +1,49 @@
+[debug] [2018-04-30T23:19:13.146Z] ----------------------------------------------------------------------
+[debug] [2018-04-30T23:19:13.200Z] Command:       C:\Users\manue\Panacea\node.exe C:\Users\manue\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-04-30T23:19:13.200Z] CLI Version:   3.18.4
+[debug] [2018-04-30T23:19:13.201Z] Platform:      win32
+[debug] [2018-04-30T23:19:13.201Z] Node Version:  v8.11.1
+[debug] [2018-04-30T23:19:13.236Z] Time:          Mon Apr 30 2018 18:19:13 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:19:13.236Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-30T23:19:13.523Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-30T23:19:13.523Z] > authorizing via signed-in user
+[debug] [2018-04-30T23:19:13.538Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-30T23:19:13.538Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/fERoOt5DmcW4Nv7ALFiqIdiAVuM-bncDDmfoqmt4jEtOPVYniU1sE9g-yHgMQCCW',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Apr 30 2018 18:19:13 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:19:14.326Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-30T23:19:14.391Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/panacea-202116  
+  
+ Mon Apr 30 2018 18:19:14 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:19:15.376Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-30T23:19:15.377Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/panacea-202116/tokens  
+  
+ Mon Apr 30 2018 18:19:15 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:19:16.082Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-30T23:19:16.086Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/panacea-202116  
+  
+ Mon Apr 30 2018 18:19:16 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:19:16.928Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\manue\Documents\GitHub\panacea-app'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-04-30T23:20:03.624Z] Fetching environment
+[debug] [2018-04-30T23:20:03.755Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/895239331196:getServerAppConfig  
+  
+ Mon Apr 30 2018 18:20:03 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:20:03.755Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/895239331196/clients/_:getWebAppConfig  
+  
+ Mon Apr 30 2018 18:20:03 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-04-30T23:20:04.397Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-30T23:20:05.226Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-30T23:20:05.226Z] Starting @google-cloud/functions-emulator
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2018-04-30T23:20:21.581Z] Parsing function triggers
