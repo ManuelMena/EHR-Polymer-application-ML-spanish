@@ -1,8 +1,8 @@
 # \<panacea\>
 
-## 1. Descripción
-
 PANACEA es una aplicación de Polymer para la normalización y el análisis de los archivos del entorno clínico. Comienza con un módulo de historia clínica para consulta externa en formato SOAP (Subjetivo, Objetivo, Análisis y Plan). Tienes la función de crear registros de salud estructurados en una base de datos en tiempo real con Firebase.
+
+## 1. Descripción
 
 En  este proyecto vamos a iniciar con el desarrollo de una aplicación progresiva con Polymer y Firebase. En la primera fase, vamos a crear en el inicio un formulario de login; el registro de los usuarios inicia con un acuerdo de confidencialidad y políticas de uso de la información.
 
@@ -48,10 +48,10 @@ $ firebase init
 ```
 Configura un proyecto con todas las características predeterminadas de Firebase.
 
-![proyecto](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/4df91a8c0dccb5df.png)
-![predeterminado](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/de96d09e825c34a7.png)
-![public](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/de96d09e825c34a7.png)
-![index](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/1b05f1e094502330.png)
+![proyecto]()
+![predeterminado]()
+![public]()
+![index]()
 
 ## 4. Instalar e iniciar un proyecto con Polymer
 
