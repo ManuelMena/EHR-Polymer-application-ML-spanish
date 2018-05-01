@@ -78,7 +78,7 @@ En la carpeta **/public**, ejecuta este comando:
 ```linux & windows
 $ firebase serve
 ```
-Con este comando debes ver este mensaje: ```Server listening at: http://localhost:5000```,ingresa y si todo esta bien debes ver la pagina de inicio de tu aplicacion con Polymer. 
+Con este comando debes ver este mensaje: ```Server listening at: http://localhost:5000```,ingresa y si todo esta bien debes ver la pagina de inicio de la aplicacion con Polymer. 
 
 ![panacea-app](https://storage.googleapis.com/panacea-app/panacea-app.png)
 
