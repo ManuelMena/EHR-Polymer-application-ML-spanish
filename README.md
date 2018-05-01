@@ -41,14 +41,19 @@ $ firebase version
 
 * Si es la primera vez que usas **Firebase CLI** inicia con ```firebase login```
 
-Crea un nuevo directiorio para el proyecto y ejecuta este comando
+Crea un nuevo directiorio para el proyecto y ejecuta este comando.
 
 ```
-firebase init
+$ firebase init
 ```
-Configura el proyecto con todas las caracteristicas de Firebase
+Configura un proyecto con todas las caracteristicas predeterminadas de Firebase.
 
-![caracteristicas](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/4df91a8c0dccb5df.png)
+![proyecto](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/4df91a8c0dccb5df.png)
+![predeterminado](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/de96d09e825c34a7.png)
+![public](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/de96d09e825c34a7.png)
+![index](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/1b05f1e094502330.png)
+
+
 
 
 Instalaciones con Bower
