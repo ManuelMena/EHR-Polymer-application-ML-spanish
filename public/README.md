@@ -82,6 +82,8 @@ Con este comando debes ver este mensaje: ```Server listening at: http://localhos
 
 ![panacea-app](https://storage.googleapis.com/panacea-app/panacea-app.png)
 
+
+
 <!-- 
 Instalaciones con Bower
 
