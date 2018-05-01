@@ -1,6 +1,6 @@
 # \<panacea\>
 
-## Descripción
+## 1. Descripción
 
 PANACEA es una aplicación de Polymer para la normalización y el análisis de los archivos del entorno clínico. Comienza con un módulo de historia clínica para consulta externa en formato SOAP (Subjetivo, Objetivo, Análisis y Plan). Tienes la función de crear registros de salud estructurados en una base de datos en tiempo real con Firebase.
 
@@ -17,7 +17,7 @@ Antes de comenzar debes configurar un ambiente adecuado de trabajo:
 - Crear una cuenta con [Google](https://accounts.google.com/SignUp)
 - Iniciar un proyecto con [Firebase](https://console.firebase.google.com/u/0/)
 
-## Dependencias globales
+## 2. Dependencias globales
 
 Bower: se instala con el paquete de manejo de NodeJS(npm) y se usara para instalar las demas dependencias.
 
@@ -35,10 +35,20 @@ Verifique la instalación
 ```linux & windows
 $ firebase version
 ```
+## Inicializar Firebase
 
+* Antes de iniciar debes tener un proyecto nuevo en la [consola de Firebase](https://console.firebase.google.com/u/0/)
 
+* Si es la primera vez que usas **Firebase CLI** inicia con ```firebase login```
 
+Crea un nuevo directiorio para el proyecto y ejecuta este comando
 
+```
+firebase init
+```
+Configura el proyecto con todas las caracteristicas de Firebase
+
+![caracteristicas](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/4df91a8c0dccb5df.png)
 
 
 Instalaciones con Bower
