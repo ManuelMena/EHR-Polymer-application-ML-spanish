@@ -67,10 +67,20 @@ En la carpeta **/public**, inicia un proyecto y ejecuta este comando:
 ```linux & windows
 $ polymer init
 ```
-Elige una aplicacion simple con Polymer.
+Elige una aplicacion simple con Polymer y configura en nombre ```panacea```.
 
 ![2.0-app](https://storage.googleapis.com/panacea-app/polymer2app.png)
 
+## 5. Inicia tu servidor de desarrollo
+
+En la carpeta **/public**, ejecuta este comando:
+
+```linux & windows
+$ firebase serve
+```
+Con este comando debes ver este mensaje: ```Server listening at: http://localhost:5000``` ingresa y si todo esta bien esta es la pagina de inicio de tu aplicacion con Polymer. 
+
+<!-- 
 Instalaciones con Bower
 
 ```linux & windows
@@ -79,3 +89,4 @@ $ bower install polymerfire
 ```linux & windows
 $ bower install PolymerElements/platinum-sw --save
 ```
+ -->
