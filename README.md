@@ -21,20 +21,20 @@ Antes de comenzar debes configurar un ambiente adecuado de trabajo:
 
 Bower: se instala con el paquete de manejo de NodeJS(npm) y se usara para instalar las demas dependencias.
 
-´´´linux & windows
+```linux & windows
 $ npm install -g bower
-´´´
+```
 
 Firebase: La interfaz de línea de comando(CLI) de Firebase tambien se instala con NodeJS 
 
-´´´linux & windows
+```linux & windows
 $ npm install -g firebase-tools
-´´´
+```
 Verifique la instalación 
 
-´´´linux & windows
+```linux & windows
 $ firebase version
-´´´
+```
 
 
 
