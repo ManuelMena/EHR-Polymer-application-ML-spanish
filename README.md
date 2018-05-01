@@ -9,8 +9,11 @@ Para iniciar el primer sprint con este marco de trabajo, vamos a crear un grupo 
 ## Ambiente de trabajo
 
 Antes de comenzar debes configurar un ambiente adecuado de trabajo:
+- Instalar como editor de texto [Visual Studio Code](https://code.visualstudio.com/)
 - Instalar [NodeJS](https://nodejs.org)
-- 
+- Instalar [GIT](https://git-scm.com/)
+- Crear una cuenta con [Google](https://accounts.google.com/SignUp)
+
 
 ## Instaliciones con Bower
 
