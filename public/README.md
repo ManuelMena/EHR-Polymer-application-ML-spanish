@@ -19,13 +19,13 @@ Antes de comenzar debes configurar un ambiente de trabajo adecuado:
 
 ## 2. Dependencias globales
 
-Bower: se instala con el paquete de manejo de NodeJS(npm) y se usara para instalar las demas dependencias.
+Bower: se instala con el paquete de manejo de NodeJS(npm) y se usará para instalar las demás dependencias.
 
 ```linux & windows
 $ npm install -g bower
 ```
 
-Firebase: La interfaz de línea de comando(CLI) de Firebase tambien se instala con NodeJS 
+Firebase: La interfaz de línea de comando(CLI) de Firebase también se instala con NodeJS 
 
 ```linux & windows
 $ npm install -g firebase-tools
@@ -41,12 +41,12 @@ $ firebase version
 
 * Si es la primera vez que usas **Firebase CLI** inicia con ```firebase login```
 
-Crea un nuevo directiorio para el proyecto y ejecuta este comando:
+Crea un nuevo directorio para el proyecto y ejecuta este comando:
 
 ```linux & windows
 $ firebase init
 ```
-Configura un proyecto con todas las caracteristicas predeterminadas de Firebase.
+Configura un proyecto con todas las características predeterminadas de Firebase.
 
 ![proyecto](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/4df91a8c0dccb5df.png)
 ![predeterminado](https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/img/de96d09e825c34a7.png)
@@ -55,7 +55,7 @@ Configura un proyecto con todas las caracteristicas predeterminadas de Firebase.
 
 ## 4. Instalar e iniciar un proyecto con Polymer
 
-La interfaz de línea de comando(CLI) de Polymer tambien se instala con NodeJS
+La interfaz de línea de comando(CLI) de Polymer también se instala con NodeJS
 
 ```linux & windows
 $ npm install npm@latest -g
@@ -67,7 +67,7 @@ En la carpeta **/public**, inicia un proyecto y ejecuta este comando:
 ```linux & windows
 $ polymer init
 ```
-Elige una aplicacion simple con Polymer y configura en nombre ```panacea```.
+Elige una simple aplicación con Polymer y configura como nombre ```panacea```.
 
 ![2.0-app](https://storage.googleapis.com/panacea-app/polymer2app.png)
 
@@ -78,12 +78,11 @@ En la carpeta **/public**, ejecuta este comando:
 ```linux & windows
 $ firebase serve
 ```
-Con este comando debes ver este mensaje: ```Server listening at: http://localhost:5000```,ingresa y si todo esta bien debes ver la pagina de inicio de la aplicacion con Polymer. 
+Con este comando debes ver este mensaje: ```Server listening at: http://localhost:5000```,ingresa y si todo esta bien debes ver la página de inicio de la aplicación con Polymer. 
 
 ![panacea-app](https://storage.googleapis.com/panacea-app/panacea-app.png)
 
 ## Configurar
-
 
 <!-- 
 Instalaciones con Bower
