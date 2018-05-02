@@ -1,8 +1,9 @@
 {
-  "name": "panacea",
-  "short_name": "panacea",
+  "name": "Panacea",
+  "language": "es",
+  "short_name": "Panacea",
   "scope": "./",
-  "description": "hce",
+  "description": "HCE",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
