@@ -2,6 +2,8 @@
 <link rel="import" href="../../bower_components/login-fire/login-fire.html">
 <link rel="import" href="../../bower_components/login-fire/login-fire-form.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 
 <dom-module id="panacea-app">
   <template>
@@ -9,23 +11,33 @@
       :host {
         display: block;
       }
-    </style>
-    <!-- login -->
-    <firebase-app
-      name="panacea"
-      api-key="AIzaSyBZgcpNJvhA38WF3WMqYkWAtnj_z4gimpU",
-      auth-domain="panacea-202116.firebaseapp.com",
-      database-url="https://panacea-202116.firebaseio.com",
-      projectId= "panacea-202116",
-      storageBucket= "panacea-202116.appspot.com",
-      messagingSenderId= "895239331196">
-    </firebase-app>
+      login-fire-form {
+        margin: auto;
+        width: 26%;
+        padding-top: 126px;
+      }
 
-    <login-fire-form
-      app-name="panacea"
-      user="{{user}}"
-      signed-in="{{signedIn}}">
-    </login-fire-form>
+    </style>
+
+
+        <!-- login -->
+        <firebase-app
+          name="panacea"
+          api-key="AIzaSyBZgcpNJvhA38WF3WMqYkWAtnj_z4gimpU",
+          auth-domain="panacea-202116.firebaseapp.com",
+          database-url="https://panacea-202116.firebaseio.com",
+          projectId= "panacea-202116",
+          storageBucket= "panacea-202116.appspot.com",
+          messagingSenderId= "895239331196">
+        </firebase-app>
+
+        <login-fire-form
+          app-name="panacea"
+          user="{{user}}"
+          signed-in="{{signedIn}}">
+        </login-fire-form>
+
+
     
   </template>
 
