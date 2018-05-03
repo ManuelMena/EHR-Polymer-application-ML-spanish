@@ -1,7 +1,4 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../bower_components/iron-form/iron-form.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/login-fire/login-fire.html">
 <link rel="import" href="../../bower_components/login-fire/login-fire-form.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
@@ -13,21 +10,22 @@
         display: block;
       }
     </style>
-<!-- login -->
-  <firebase-app
-    name="panacea"
-    api-key="AIzaSyBZgcpNJvhA38WF3WMqYkWAtnj_z4gimpU",
-    auth-domain="panacea-202116.firebaseapp.com",
-    database-url="https://panacea-202116.firebaseio.com",
-    projectId= "panacea-202116",
-    storageBucket= "panacea-202116.appspot.com",
-    messagingSenderId= "895239331196">
-  </firebase-app>
-  <login-fire-form
-    app-name="panacea"
-    user="{{user}}"
-    signed-in="{{signedIn}}">
-  </login-fire-form>
+    <!-- login -->
+    <firebase-app
+      name="panacea"
+      api-key="AIzaSyBZgcpNJvhA38WF3WMqYkWAtnj_z4gimpU",
+      auth-domain="panacea-202116.firebaseapp.com",
+      database-url="https://panacea-202116.firebaseio.com",
+      projectId= "panacea-202116",
+      storageBucket= "panacea-202116.appspot.com",
+      messagingSenderId= "895239331196">
+    </firebase-app>
+
+    <login-fire-form
+      app-name="panacea"
+      user="{{user}}"
+      signed-in="{{signedIn}}">
+    </login-fire-form>
   </template>
 
   <script>
@@ -43,31 +41,10 @@
             type: String,
             value: 'panacea-app'
           }
-        } 
+        };
       }
     }
+
     window.customElements.define(PanaceaApp.is, PanaceaApp);
   </script>
 </dom-module>
-
-
-
-<!-- Login 
-<firebase-auth 
- id="auth" 
- email="{{email}}" 
- pass="{{pass}}">
-</firebase-auth> 
-
-login: function() {
-return this.$.auth.signInWithEmailAndPassword(email,pass);}
-const auth = firebase.auth();
-
-email: {
-type: Object
-},
-pass: {
-type: Object
-} -->
-
-

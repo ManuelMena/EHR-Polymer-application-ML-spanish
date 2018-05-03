@@ -83,14 +83,3 @@ Con este comando debes ver este mensaje: ```Server listening at: http://localhos
 ![panacea-app](https://storage.googleapis.com/panacea-app/panacea-app.png)
 
 ## Configurar
-
-<!-- 
-Instalaciones con Bower
-
-```linux & windows
-$ bower install polymerfire
-```
-```linux & windows
-$ bower install PolymerElements/platinum-sw --save
-```
- -->

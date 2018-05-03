@@ -1,48 +1,40 @@
-[debug] [2018-05-01T02:09:03.359Z] ----------------------------------------------------------------------
-[debug] [2018-05-01T02:09:03.359Z] Command:       C:\Users\manue\Panacea\node.exe C:\Users\manue\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
-[debug] [2018-05-01T02:09:03.359Z] CLI Version:   3.18.4
-[debug] [2018-05-01T02:09:03.359Z] Platform:      win32
-[debug] [2018-05-01T02:09:03.359Z] Node Version:  v8.11.1
-[debug] [2018-05-01T02:09:03.374Z] Time:          Mon Apr 30 2018 21:09:03 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:03.374Z] ----------------------------------------------------------------------
+[debug] [2018-05-03T03:04:58.807Z] ----------------------------------------------------------------------
+[debug] [2018-05-03T03:04:58.823Z] Command:       C:\Users\manue\Panacea\node.exe C:\Users\manue\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-05-03T03:04:58.823Z] CLI Version:   3.18.4
+[debug] [2018-05-03T03:04:58.823Z] Platform:      win32
+[debug] [2018-05-03T03:04:58.823Z] Node Version:  v8.11.1
+[debug] [2018-05-03T03:04:58.823Z] Time:          Wed May 02 2018 22:04:58 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-05-03T03:04:58.823Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-05-01T02:09:03.479Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-05-01T02:09:03.479Z] > authorizing via signed-in user
-[debug] [2018-05-01T02:09:03.479Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-05-01T02:09:03.479Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- { refresh_token: '1/fERoOt5DmcW4Nv7ALFiqIdiAVuM-bncDDmfoqmt4jEtOPVYniU1sE9g-yHgMQCCW',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Mon Apr 30 2018 21:09:03 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:03.906Z] <<< HTTP RESPONSE 200
-[debug] [2018-05-01T02:09:03.963Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/panacea-202116  
+[debug] [2018-05-03T03:04:58.823Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-03T03:04:58.839Z] > authorizing via signed-in user
+[debug] [2018-05-03T03:04:58.839Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/panacea-202116  
   
- Mon Apr 30 2018 21:09:03 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:04.745Z] <<< HTTP RESPONSE 200
-[debug] [2018-05-01T02:09:04.745Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/panacea-202116/tokens  
+ Wed May 02 2018 22:04:58 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-05-03T03:04:59.686Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T03:04:59.687Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/panacea-202116/tokens  
   
- Mon Apr 30 2018 21:09:04 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:05.379Z] <<< HTTP RESPONSE 200
-[debug] [2018-05-01T02:09:05.379Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/panacea-202116  
+ Wed May 02 2018 22:04:59 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-05-03T03:05:00.253Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T03:05:00.255Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/panacea-202116  
   
- Mon Apr 30 2018 21:09:05 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:06.127Z] <<< HTTP RESPONSE 200
+ Wed May 02 2018 22:05:00 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-05-03T03:05:00.990Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\manue\Documents\GitHub\panacea-app'...
 [info] 
 [info] i  functions: Preparing to emulate functions.
-[debug] [2018-05-01T02:09:46.786Z] Fetching environment
-[debug] [2018-05-01T02:09:46.793Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/895239331196:getServerAppConfig  
+[debug] [2018-05-03T03:05:02.263Z] Fetching environment
+[debug] [2018-05-03T03:05:02.282Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/895239331196:getServerAppConfig  
   
- Mon Apr 30 2018 21:09:46 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:46.794Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/895239331196/clients/_:getWebAppConfig  
+ Wed May 02 2018 22:05:02 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-05-03T03:05:02.283Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/895239331196/clients/_:getWebAppConfig  
   
- Mon Apr 30 2018 21:09:46 GMT-0500 (Hora est. Pacífico, Sudamérica)
-[debug] [2018-05-01T02:09:47.405Z] <<< HTTP RESPONSE 200
-[debug] [2018-05-01T02:09:48.207Z] <<< HTTP RESPONSE 200
-[debug] [2018-05-01T02:09:48.207Z] Starting @google-cloud/functions-emulator
+ Wed May 02 2018 22:05:02 GMT-0500 (Hora est. Pacífico, Sudamérica)
+[debug] [2018-05-03T03:05:03.171Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-05-03T03:05:03.686Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T03:05:03.686Z] Starting @google-cloud/functions-emulator
+[debug] [2018-05-03T03:05:05.991Z] Parsing function triggers
