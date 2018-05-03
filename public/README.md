@@ -46,6 +46,7 @@ Crea un nuevo directorio para el proyecto y ejecuta este comando:
 ```linux & windows
 $ firebase init
 ```
+
 Configura un proyecto con todas las características predeterminadas de Firebase.
 
 ![proyecto]()
