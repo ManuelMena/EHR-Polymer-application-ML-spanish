@@ -4,6 +4,20 @@
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
 
 <dom-module id="panacea-app">
   <template>
@@ -11,15 +25,121 @@
       :host {
         display: block;
       }
-      login-fire-form {
+    app-header {
+		background-color: rgba(0, 204, 109, 0.857);
+		color: #fff;
+	  }
+    app-drawer {
+      --app-drawer-scrim-background: rgba(0, 255, 179, 0.111);
+      --app-drawer-content-container: {
+        background-color: #ededed;
+      }
+    }
+	  paper-icon-button {
+		--paper-icon-button-ink-color: white;
+	  }
+	  app-drawer-layout:not([narrow]) [drawer-toggle] {
+		display: none;
+	  }
+	  #container {
+		display: flex;
+	  }
+	  paper-button {
+		font-family: 'Roboto', 'Noto', sans-serif;
+		font-weight: normal;
+		font-size: 14px;
+		-webkit-font-smoothing: antialiased;
+		margin: 30px;
+		display: block;
+		text-align: center;
+	  }
+	  paper-button.teal {
+		background-color: var(--paper-teal-500);
+		color: white;
+	  }
+	  paper-button.teal[active] {
+		background-color: var(--paper-blue-500);
+	  }
+	  paper-button.disabled {
+		color: white;
+	  }
+	  paper-icon-button.tools {
+		margin-left: 30px;
+		text-align: center;
+		background-color: var(--paper-white-500);
+		color: teal;
+	  }
+	  .main {
+		width: 100%;
+	  }
+	  .main .nav-bar {
+		flex: 25%;
+	  }
+	  .main .scroll-area {
+		display: block;
+		flex: 100%;
+	  }
+	  iron-selector {
+		display: block;
+		position: relative;
+		margin-top: 30px;
+		margin-left: 26px;
+	  }
+	  iron-selector:hover {
+		cursor: pointer;
+	  }
+	  iron-selector a {
+		display: inherit;
+		padding: 26px;
+	  }
+	  iron-selector a.iron-selected {
+		font-weight: bold;
+	  }
+	  iron-page-scroll {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	  }
+	  iron-page-scroll div {
+		width: 100%;
+		height: 700px;
+		display: block;
+	 }
+
+   div.login {
+     position: absolute;
+     z-index: 1;
+     width: 100%;
+     height: 100%;
+     background-color: white;
+   }
+
+    login-fire-form {
+      margin: auto;
+      width: 256px;
+      padding-top: 126px;
+      z-index: 1;
+      }
+
+      div.landing {
         margin: auto;
-        width: 26%;
-        padding-top: 126px;
+        text-align: center;
+        padding-top: 120px;
+        font-size: 60px;
+        z-index: 0;
+      }
+
+      iron-selector {
+        background-color: white;
+        margin-top: 100px;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 12px 0px 0px 12px;
+        text-align: center;
       }
 
     </style>
-
-
         <!-- login -->
         <firebase-app
           name="panacea"
@@ -30,15 +150,48 @@
           storageBucket= "panacea-202116.appspot.com",
           messagingSenderId= "895239331196">
         </firebase-app>
+        <div class="login" raised hidden$="[[user]]">
+          <login-fire-form
+            app-name="panacea"
+            user="{{user}}"
+            signed-in="{{signedIn}}">
+          </login-fire-form>
+        </div>
+        <!-- body -->
+        <body>
+            <app-drawer-layout hidden$="[[!user]]">
+                <app-drawer slot="drawer">
+                 <app-toolbar>
+                  <img src="https://storage.googleapis.com/tetraktys/logopanacea.png" 
+                  alt="Panacea" 
+                  class="" 
+                  width="36%" 
+                  style="margin-top: 40px; margin-left: 70px;">
+                 </app-toolbar>
+                 <iron-selector selected="{{page}}" attr-for-selected="name">
+                  <nav name=""><iron-icon icon="event-seat" style="color: rgb(0, 155, 182);"></iron-icon> Consulta Externa</nav>
+                 </iron-selector>
+                </app-drawer>
+                <app-header-layout>
+                 <app-header slot="header" condenses fixed>
+                  <app-toolbar>
+                    <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+                    <div main-title style="margin-left:20px;">Historia Clínica</div>
+                    <button id="logout">Salir</button>
+                  </app-toolbar>
+                 </app-header>
+                 <app-box>
+                   <div class="landing">Bienvenidos a Panacea</div>
+                  <iron-page-scroll selected="{{page}}" attr-for-selected="name">
+                    <sub-dash name=""></sub-dash>
+                    <obj-dash name=""></obj-dash>
+                    <ana-dash name=""></ana-dash>
+                  </iron-page-scroll>
+                 </app-box>
+                </app-header-layout>
+               </app-drawer-layout>
+            </body>
 
-        <login-fire-form
-          app-name="panacea"
-          user="{{user}}"
-          signed-in="{{signedIn}}">
-        </login-fire-form>
-
-
-    
   </template>
 
   <script>
@@ -53,11 +206,13 @@
           prop1: {
             type: String,
             value: 'panacea-app'
-          }
+          },
         };
+      logout.addEventListener('click', e => {
+      firebase.auth().signOuth();
+    });
       }
     }
-
     window.customElements.define(PanaceaApp.is, PanaceaApp);
   </script>
 </dom-module>
