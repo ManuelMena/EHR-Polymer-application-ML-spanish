@@ -19,9 +19,11 @@
 
 <link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
 
+
 <dom-module id="panacea-app">
   <template>
-    <style>
+    <custom-style>
+    <style is="custom-style">
       :host {
         display: block;
       }
@@ -49,9 +51,14 @@
 		font-weight: normal;
 		font-size: 14px;
 		-webkit-font-smoothing: antialiased;
-		margin: 30px;
 		display: block;
-		text-align: center;
+    padding: 10px;
+		margin-top: 10px;
+		margin-left: 26px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 12px 0px 0px 12px;
+    text-align: center;
 	  }
 	  paper-button.teal {
 		background-color: var(--paper-teal-500);
@@ -82,8 +89,7 @@
 	  iron-selector {
 		display: block;
 		position: relative;
-		margin-top: 30px;
-		margin-left: 26px;
+    margin-top: 20px;
 	  }
 	  iron-selector:hover {
 		cursor: pointer;
@@ -130,25 +136,30 @@
         z-index: 0;
       }
 
-      iron-selector {
-        background-color: white;
-        margin-top: 100px;
-        padding: 10px;
+      app-toolbar.drawer {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: normal;
+        font-size: 20px;
+        -webkit-font-smoothing: antialiased;
+        padding: 0px;
+        margin-top: 0px;
+        margin-left: 0px;
+        background-color: rgb(255, 255, 255);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 12px 0px 0px 12px;
         text-align: center;
       }
 
     </style>
+    </custom-style>
         <!-- login -->
         <firebase-app
           name="panacea"
           api-key="AIzaSyBZgcpNJvhA38WF3WMqYkWAtnj_z4gimpU",
           auth-domain="panacea-202116.firebaseapp.com",
           database-url="https://panacea-202116.firebaseio.com",
-          projectId= "panacea-202116",
-          storageBucket= "panacea-202116.appspot.com",
-          messagingSenderId= "895239331196">
+          project-id= "panacea-202116",
+          storage-bucket= "panacea-202116.appspot.com",
+          messaging-senderId= "895239331196">
         </firebase-app>
         <div class="login" raised hidden$="[[user]]">
           <login-fire-form
@@ -161,27 +172,31 @@
         <body>
             <app-drawer-layout hidden$="[[!user]]">
                 <app-drawer slot="drawer">
-                 <app-toolbar>
-                  <img src="https://storage.googleapis.com/tetraktys/logopanacea.png" 
+                 <app-toolbar class="drawer">
+                  <img 
+                  src="https://storage.googleapis.com/tetraktys/logopanacea.png" 
                   alt="Panacea" 
                   class="" 
-                  width="36%" 
-                  style="margin-top: 40px; margin-left: 70px;">
+                  width="20%" 
+                  style="margin-top: 6px; margin-left: 16px;">
+                  <div main-title style="margin-left:0px;">Historia Clínica</div>
                  </app-toolbar>
                  <iron-selector selected="{{page}}" attr-for-selected="name">
-                  <nav name=""><iron-icon icon="event-seat" style="color: rgb(0, 155, 182);"></iron-icon> Consulta Externa</nav>
+                  <paper-button name=""><iron-icon icon="event-seat" style="color: rgb(0, 155, 182);"></iron-icon> Consulta Externa</paper-button>
+                  <paper-button name=""><iron-icon icon="assignment" style="color: rgb(0, 155, 182);"></iron-icon> Hospitalización</paper-button>
+                  <paper-button name=""><iron-icon icon="add-box" style="color: rgb(0, 155, 182);"></iron-icon> Urgencias</paper-button>
+                  <paper-button name=""><iron-icon icon="pan-tool" style="color: rgb(0, 155, 182);"></iron-icon> Cirugía</paper-button>
                  </iron-selector>
                 </app-drawer>
                 <app-header-layout>
                  <app-header slot="header" condenses fixed>
                   <app-toolbar>
                     <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-                    <div main-title style="margin-left:20px;">Historia Clínica</div>
-                    <button id="logout">Salir</button>
+                    <paper-icon-button icon="account-circle" style="position: absolute; right: 16px;"></paper-icon-button>
                   </app-toolbar>
                  </app-header>
                  <app-box>
-                   <div class="landing">Bienvenidos a Panacea</div>
+                   <div class="landing">Bienvenido a Panacea</div>
                   <iron-page-scroll selected="{{page}}" attr-for-selected="name">
                     <sub-dash name=""></sub-dash>
                     <obj-dash name=""></obj-dash>
@@ -199,8 +214,12 @@
      * @customElement
      * @polymer
      */
+
     class PanaceaApp extends Polymer.Element {
       static get is() { return 'panacea-app'; }
+      logOut() {
+        firebase.auth().signOut();
+      }
       static get properties() {
         return {
           prop1: {
@@ -208,9 +227,6 @@
             value: 'panacea-app'
           },
         };
-      logout.addEventListener('click', e => {
-      firebase.auth().signOuth();
-    });
       }
     }
     window.customElements.define(PanaceaApp.is, PanaceaApp);
