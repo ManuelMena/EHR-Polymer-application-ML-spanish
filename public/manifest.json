@@ -3,7 +3,7 @@
   "short_name": "Panacea",
   "scope": "./",
   "description": "HCE",
-  "start_url": "/",
+  "start_url": "index.html",
   "display": "standalone",
   "orientation": "any",
   "theme_color": "#26b08b",

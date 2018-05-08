@@ -1,7 +1,13 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
 <link rel="import" href="../../bower_components/login-fire/login-fire.html">
 <link rel="import" href="../../bower_components/login-fire/login-fire-form.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/polymerfire/polymerfire.html">
+<link rel="import" href="../../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+<link rel="import" href="../../bower_components/note-app-elements/na-elements.html">
+
+
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -26,6 +32,11 @@
     <style is="custom-style">
       :host {
         display: block;
+        background-color: #e8e8e8;
+        height: 100vh;
+        @apply --paper-font-common-base;
+
+        --paper-fab-background: var(--paper-teal-500);
       }
     app-header {
 		background-color: rgba(0, 204, 109, 0.857);
@@ -117,7 +128,8 @@
      position: absolute;
      z-index: 1;
      width: 100%;
-     height: 100%;
+     height: 92%;
+     margin-top: 52px;
      background-color: white;
    }
 
@@ -148,7 +160,37 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         text-align: center;
       }
+      paper-fab {
+        background-color: steelblue;
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+      }
+      .notes {
+        position: relative;
+        box-sizing: border-box;
+        padding: 1em;
+        max-height: calc(85vh - 46px);
+        overflow: auto;
+      }
 
+      na-note {
+        margin-bottom: 1em;
+      }
+
+      @media (min-width: 640px) {
+        na-note {
+          max-width: 320px;
+          margin: 0 0.5em 1em;
+        }
+
+        .notes {
+          @apply --layout-horizontal;
+          @apply --layout-wrap;
+          justify-content: center;
+          align-content: space-around;
+        }
+      }
     </style>
     </custom-style>
         <!-- login -->
@@ -166,9 +208,10 @@
             app-name="panacea"
             user="{{user}}"
             signed-in="{{signedIn}}">
+            <button icon="account-circle" style="position: absolute; right: 16px;" on-click="signOut" hidden$="[[!user]]">out</button>
           </login-fire-form>
         </div>
-        <!-- body -->
+        <!-- body 
         <body>
             <app-drawer-layout hidden$="[[!user]]">
                 <app-drawer slot="drawer">
@@ -192,7 +235,6 @@
                  <app-header slot="header" condenses fixed>
                   <app-toolbar>
                     <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-                    <paper-icon-button icon="account-circle" style="position: absolute; right: 16px;"></paper-icon-button>
                   </app-toolbar>
                  </app-header>
                  <app-box>
@@ -205,30 +247,108 @@
                  </app-box>
                 </app-header-layout>
                </app-drawer-layout>
-            </body>
+           <firebase-document
+               id="document"
+               app-name="panacea"
+               path="[[editableNoteId]]"
+               data="{{editableNote}}">
+           </firebase-document>
+           <firebase-query
+               id="query"
+               app-name="panacea"
+               path="/notes/[[user.uid]]"
+               data="{{notes}}">
+           </firebase-query>
+          <na-note
+              id$="[[note.$key]]"
+              title="[[note.title]]"
+              body="[[note.body]]"
+              on-tap="edit">
+          </na-note>
+
+            </body> -->
+
+            <!-- FIREBASE AUTH STUFF -->
+    <na-toolbar
+    signed-in="[[signedIn]]"
+  on-sign-out="signOut">
+</na-toolbar>
+
+<firebase-auth
+  id="auth"
+  app-name="panacea"
+  signed-in="{{signedIn}}"
+  user="{{user}}">
+</firebase-auth>
+<firebase-document
+  id="document"
+  app-name="panacea"
+  path="[[editableNoteId]]"
+  data="{{editableNote}}">
+</firebase-document>
+<firebase-query
+  id="query"
+  app-name="panacea"
+  path="/notes/[[user.uid]]"
+  data="{{notes}}">
+</firebase-query>
+
+<!-- UI ELEMENTS -->
+<paper-fab
+  icon="add"
+  on-tap="create"
+  disabled="[[!online]]"
+  aria-label="Add note">
+</paper-fab>
+
+<na-editor
+  id="editor"
+  note="{{editableNote}}"
+  on-close="commitChange">
+</na-editor>
+
+<div class="notes">
+<template is="dom-repeat" items="[[persistedNotes]]" as="note">
+  <na-note
+      id$="[[note.$key]]"
+      title="[[note.title]]"
+      body="[[note.body]]"
+      on-tap="edit">
+  </na-note>
+</template>
+</div>
+
+<!-- SERVICE WORKER -->
+<app-indexeddb-mirror
+  session="[[user.uid]]"
+  key="panacea"
+  data="{{notes}}"
+  persisted-data="{{persistedNotes}}">
+</app-indexeddb-mirror>
 
   </template>
 
   <script>
-    /**
-     * @customElement
-     * @polymer
-     */
+  Polymer({
+    is: 'panacea-app',
 
-    class PanaceaApp extends Polymer.Element {
-      static get is() { return 'panacea-app'; }
-      logOut() {
-        firebase.auth().signOut();
-      }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'panacea-app'
-          },
-        };
-      }
+    behaviors: [Polymer.NoteAppBehavior],
+
+    signIn: function() {
+      this.$.auth.signInWithEmailAndPassword();
+    },
+
+    get notesPath() {
+      return '/notes/' + this.user.uid;
+    },
+
+    toEditableId: function(noteId) {
+      return this.notesPath + '/' + noteId;
+    },
+
+    get isEditable() {
+      return this.online;
     }
-    window.customElements.define(PanaceaApp.is, PanaceaApp);
+  });
   </script>
 </dom-module>
